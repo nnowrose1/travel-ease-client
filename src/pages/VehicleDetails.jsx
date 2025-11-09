@@ -6,24 +6,25 @@ import {
   FaEnvelope,
   FaCalendarAlt,
 } from "react-icons/fa";
-import useAxios from "../customHooks/useAxios";
+// import useAxios from "../customHooks/useAxios";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
+import useAxiosSecure from "../customHooks/useAxiosSecure";
 
 const VehicleDetails = () => {
-  const axiosInstance = useAxios();
+  const secureInstance = useAxiosSecure();
   const [vehicle, setVehicle] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 //   console.log(id);
 
     useEffect(() => {
-      axiosInstance.get(`/allVehicles/${id}`).then((data) => {
+      secureInstance.get(`/allVehicles/${id}`).then((data) => {
         setVehicle(data.data);
         setLoading(false);
       });
-    }, [axiosInstance, id]);
+    }, [secureInstance, id]);
 
     if(loading){
         return <Loader></Loader>
