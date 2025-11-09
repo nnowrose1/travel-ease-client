@@ -2,11 +2,11 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="w-full mx-auto flex flex-col">
-    <footer className="footer sm:footer-horizontal text-neutral-content p-8 bg-primary">
+    <div className="w-full mx-auto flex flex-col bg-linear-to-r from-gray-900 to-gray-600">
+    <footer className="footer sm:footer-horizontal text-neutral-content p-8 bg-linear-to-r from-gray-900 to-gray-600">
         
       <nav>
-        <h6 className="footer-title">Company</h6>
+        <h6 className="footer-title font-semibold">Company</h6>
         <a className="link link-hover">About us</a>
         <a className="link link-hover">Our Services</a>
         <a className="link link-hover">Contact Us</a>
@@ -27,9 +27,9 @@ const Footer = () => {
       </nav>
       </footer>
     
-      <footer className="footer footer-horizontal footer-center bg-primary text-white rounded p-5">
+      <footer className="footer footer-horizontal footer-center bg-primary text-white rounded p-5 bg-linear-to-r from-gray-900 to-gray-600">
     <nav>
-    <div className="grid grid-flow-col gap-4">
+    <div className="grid grid-flow-col gap-4 ">
       <a>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ const Footer = () => {
     </div>
   </nav>
   <aside>
-    <p>Copyright © {new Date().getFullYear()} - All right reserved by WarmPaws</p>
+    <p>Copyright © {new Date().getFullYear()} - All right reserved by LuxTrip</p>
   </aside>
 </footer>
     </div> 

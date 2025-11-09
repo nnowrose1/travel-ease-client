@@ -39,10 +39,10 @@ const Login = () => {
       });
   };
   return (
-    <div className="hero container mx-auto bg-orange-100 text-primary min-h-screen">
+    <div className="hero container mx-auto bg-blue-50 text-primary min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
-          <div className="card bg-white p-8 w-full max-w-sm shrink-0 shadow-2xl text-primary">
+          <div className="card bg-white p-8 w-full max-w-sm shrink-0 shadow-2xl text-black">
             <h1 className="text-5xl text-center font-bold">Login Now!</h1>
             <div className="card-body">
               <form onSubmit={handleLogin}>
@@ -82,7 +82,7 @@ const Login = () => {
                       Forgot password?
                     </button>
                   </div>
-                  <button className="btn btn-neutral mt-4 bg-primary rounded-md text-white">
+                  <button className="btn mt-4 btn-primary rounded-md text-white">
                     Login
                   </button>
                 </fieldset>
@@ -91,7 +91,7 @@ const Login = () => {
                 New to our website?{" "}
                 <Link
                   to={"/register"}
-                  className="font-bold text-primary underline"
+                  className="font-bold text-orange-400 underline hover:text-xl"
                 >
                   Signup
                 </Link>{" "}
@@ -106,7 +106,7 @@ const Login = () => {
             {/* Google */}
             <button
               onClick={handleGoogleLogIn}
-              className="btn bg-white text-black border-[#e5e5e5]"
+              className="btn bg-orange-100 hover:bg-orange-300 text-black border-[#e5e5e5]"
             >
               <svg
                 aria-label="Google logo"

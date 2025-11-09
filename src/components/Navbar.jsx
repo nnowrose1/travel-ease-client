@@ -1,27 +1,29 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import useAuth from "../customHooks/useAuth";
 import toast from "react-hot-toast";
+import { FiLogIn, FiLogOut } from "react-icons/fi";
+import userImg from '../assets/user.jpg'
 
 const Navbar = () => {
   const { user, logOut, setUser } = useAuth();
   const links = (
     <>
-      <li>
+      <li className="font-semibold text-accent">
         <NavLink to={"/"}>Home</NavLink>
       </li>
-      <li>
+      <li className="font-semibold">
         <NavLink to={"/allVehicles"}>All Vehicles</NavLink>
       </li>
       {user && (
         <>
-          <li>
+          <li className="font-semibold">
             <NavLink to={"/addVehicle"}>Add Vehicle</NavLink>
           </li>
-          <li>
+          <li className="font-semibold">
             <NavLink to={"/myVehicles"}>My Vehicles</NavLink>
           </li>
-          <li>
+          <li className="font-semibold">
             <NavLink to={"/myBookings"}>My Bookings</NavLink>
           </li>
         </>
@@ -40,7 +42,7 @@ const Navbar = () => {
       });
   };
   return (
-    <nav className="navbar bg-base-100 shadow-sm">
+    <nav className="navbar shadow-sm  text-accent">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -67,23 +69,39 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-2xl font-bold"><span className="text-orange-400">Lux</span>Trip</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
+        {/* Tooltip from daisyUI */}
+
+        <div
+          className="tooltip mr-2" 
+          data-tip={user?.displayName ? user?.displayName : "User"}
+        >
+          {user && (
+            <img
+              className="h-12 w-12 rounded-full cursor-pointer"
+              src={user?.photoURL ? user?.photoURL : userImg }
+            ></img>
+          )}
+        </div>
+
         {user ? (
           <NavLink to={"/login"}>
-            <button onClick={handleSignOut} className="btn">
+            <button onClick={handleSignOut} className="btn btn-primary">
               {" "}
-              Sign Out
+              <FiLogOut></FiLogOut> Sign Out
             </button>
           </NavLink>
         ) : (
-          <div >
-            <NavLink to={"/login"}>Login</NavLink>
-            <NavLink className='ml-3' to={"/register"}>Register</NavLink>
+          <div>
+            <Link className='btn-primary' to={"/login"}> Login</Link>
+            <Link className="ml-3 bg-linear-to-r from-orange-500 to-orange-300 hover:text-xl font-semibold text-white py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300" to={"/register"}>
+              Register
+            </Link>
           </div>
         )}
       </div>

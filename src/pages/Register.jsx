@@ -6,7 +6,7 @@ import useAuth from "../customHooks/useAuth";
 import { AuthContext } from "../context/AuthContext";
 
 const Register = () => {
-  const { createUser, setUser, googleSignIn } = useAuth();
+  const { createUser, setUser, googleSignIn, profileUpdate } = useAuth();
   const [error, setError] = useState("");
   const [toggleEyeIcon, setToggleEyeIcon] = useState(false);
   const navigate = useNavigate();
@@ -18,7 +18,11 @@ const Register = () => {
     const name = e.target.name.value;
     const photo = e.target.photo.value;
     const terms = e.target.terms.checked;
-    console.log({ name, photo, email, password });
+    // console.log({ name, photo, email, password });
+    const profile = {
+      displayName: name,
+      photoURL: photo,
+    };
     setError(" ");
 
     if (!terms) {
@@ -43,6 +47,14 @@ const Register = () => {
         setUser(result.user);
         toast.success("Registration Successful!");
         e.target.reset();
+        profileUpdate(profile)
+          .then(() => {
+            console.log("Profile Updated!");
+            setUser(profile);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
         navigate("/");
       })
       .catch((error) => {
@@ -52,19 +64,19 @@ const Register = () => {
   };
 
   const handleGoogleSignUp = () => {
-      googleSignIn()
-        .then((result) => {
-          setUser(result.user);
-          navigate("/");
-        })
-        .catch((error) => {
-          toast.error(error.message);
-        });
-    };
-    
+    googleSignIn()
+      .then((result) => {
+        setUser(result.user);
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
+
   return (
-    <div className="hero container mx-auto bg-orange-100 text-primary min-h-screen">
-      <div className="hero-content bg-orange-100 flex-col lg:flex-row-reverse">
+    <div className="hero container mx-auto bg-blue-50 text-black min-h-screen">
+      <div className="hero-content  flex-col lg:flex-row-reverse">
         <div className="text-center">
           <h1 className="text-5xl font-bold">Please Signup!</h1>
         </div>
@@ -124,17 +136,14 @@ const Register = () => {
                   Please accept our Terms and Conditions!{" "}
                 </label>
 
-                <button className="btn btn-neutral mt-4 bg-primary rounded-md text-white">
-                 Sign Up
+                <button className="btn mt-4 btn-primary rounded-md text-white">
+                  Sign Up
                 </button>
               </fieldset>
             </form>
             <p className="text-center">
               Already have an account?{" "}
-              <Link
-                to={"/login"}
-                className="font-bold text-primary underline"
-              >
+              <Link to={"/login"} className="font-bold text-orange-400 underline hover:text-xl">
                 Login
               </Link>{" "}
             </p>
@@ -148,7 +157,7 @@ const Register = () => {
             {/* Google */}
             <button
               onClick={handleGoogleSignUp}
-              className="btn bg-white text-black border-[#e5e5e5]"
+              className="btn bg-orange-100 hover:bg-orange-300 text-black border-[#e5e5e5] hover:btn-primary"
             >
               <svg
                 aria-label="Google logo"

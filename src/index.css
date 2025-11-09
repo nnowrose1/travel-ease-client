@@ -2,5 +2,21 @@
 @plugin "daisyui";
 
 nav a.active{
-  text-decoration: underline;
+  font-weight: bold;
+  color: orange
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  
+   --color-primary: #6a7282 ;
+  /* --color-secondary: ;   */
+  /* --color-base-200: #f3f3f3;
+  --color-base-300: #e7e7e7; */
+  --color-accent: #1e2939;
+}
+
+.btn-primary{
+  @apply bg-linear-to-r from-gray-900 to-gray-600 hover:text-xl font-semibold text-white py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300
 }

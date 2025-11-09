@@ -13,6 +13,8 @@ import AllVehicles from "./pages/AllVehicles.jsx";
 import MyVehicles from "./pages/MyVehicles.jsx";
 import MyBookings from "./pages/MyBookings.jsx";
 import AddVehicle from "./pages/AddVehicle.jsx";
+import VehicleDetails from "./pages/VehicleDetails.jsx";
+import PrivateRoute from './routes/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,12 @@ const router = createBrowserRouter([
       {
         path: '/allVehicles',
         element: <AllVehicles></AllVehicles>
+      },
+      {
+         path: '/vehicle/:id',
+        element: <PrivateRoute>
+          <VehicleDetails></VehicleDetails>
+        </PrivateRoute>
       },
       {
         path: '/myVehicles',
