@@ -46,9 +46,11 @@ const VehicleCard = ({ vehicle, handleDelete }) => {
               View Details
             </button>
           </Link>
+          <Link to={`/updateVehicle/${_id}`}>
           <button className="btn bg-linear-to-r from-orange-500 to-orange-300 hover:text-xl font-semibold text-white py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
             Update Vehicle
           </button>
+          </Link>
           <button
             onClick={() => handleDelete(vehicle._id)}
             className="btn btn-primary"
