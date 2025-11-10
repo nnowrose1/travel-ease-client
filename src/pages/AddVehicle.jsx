@@ -1,6 +1,7 @@
 import React from "react";
 import useAuth from "../customHooks/useAuth";
 import useAxiosSecure from "../customHooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const AddVehicle = () => {
   const { user } = useAuth();
@@ -15,9 +16,9 @@ const AddVehicle = () => {
     const availability = e.target.availability.value;
     const description = e.target.description.value;
     const image = e.target.image.value;
-    const rating_star= e.target.rating_star.value;
-    const avg_rating= e.target.avg_rating.value;
-    const rating_count= e.target.rating_count.value;
+    const rating_star = e.target.rating_star.value;
+    const avg_rating = e.target.avg_rating.value;
+    const rating_count = e.target.rating_count.value;
     const vehicle_owner_email = e.target.vehicle_owner_email.value;
     const newVehicle = {
       vehicle_name,
@@ -35,6 +36,13 @@ const AddVehicle = () => {
     };
 
     secureInstance.post("/allVehicles", newVehicle).then(() => {
+      Swal.fire({
+        position: "top-middle",
+        icon: "success",
+        title: "Your vehicle has been added!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       e.target.reset();
     });
   };
@@ -160,7 +168,6 @@ const AddVehicle = () => {
           <input
             type="text"
             name="rating_star"
-          
             placeholder="e.g., ⭐⭐⭐⭐"
             className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
@@ -175,7 +182,6 @@ const AddVehicle = () => {
             type="number"
             step="0.1"
             name="avg_rating"
-        
             placeholder="e.g., 4.5"
             className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
