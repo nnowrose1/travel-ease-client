@@ -10,12 +10,15 @@ import {
 } from "firebase/auth";
 import {AuthContext} from "./AuthContext";
 import { auth } from "../firebase/firebase.config";
+import useAxios from "../customHooks/useAxios";
 
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
+  const axiosInstance = useAxios();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [vehicles, setVehicles] = useState([]);
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -41,6 +44,13 @@ const AuthProvider = ({ children }) => {
         return updateProfile(auth.currentUser, profile);
     }
 
+    useEffect(() => {
+      axiosInstance.get('/allVehicles')
+      .then(data => {
+  setVehicles(data.data);
+      })
+    }, [axiosInstance])
+
   // get current user info
   useEffect(() => {
     // set/mount the observer
@@ -63,6 +73,8 @@ const AuthProvider = ({ children }) => {
     user,
     setUser,
     loading,
+    vehicles,
+    setVehicles,
     profileUpdate
   };
   return <AuthContext value={authInfo}>{children}</AuthContext>;

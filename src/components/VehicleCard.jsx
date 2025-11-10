@@ -12,11 +12,11 @@ const VehicleCard = ({ vehicle }) => {
       <img src={vehicle?.image} className="w-full h-48 object-cover" />
 
       <div className="p-5">
-        <h2 className="text-lg font-semibold text-gray-800 mb-1">
+        <h2 className="text-lg font-semibold text-accent mb-1">
           {vehicle?.vehicle_name}
         </h2>
 
-        <p className="text-sm text-gray-500 mb-2">{vehicle?.category}</p>
+        <p className="text-sm text-primary mb-2">{vehicle?.category}</p>
 
         <div
           className={`text-sm font-medium mb-3 ${
@@ -36,7 +36,7 @@ const VehicleCard = ({ vehicle }) => {
               stroke="#facc15"
             />
           ))}
-          <span className="text-gray-700 text-sm ml-1 font-medium">
+          <span className="text-accent text-sm ml-1 font-medium">
             {vehicle?.avg_rating} ({vehicle?.rating_count})
           </span>
         </div>
