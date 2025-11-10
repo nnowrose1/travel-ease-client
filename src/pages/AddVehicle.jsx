@@ -68,7 +68,7 @@ const AddVehicle = () => {
 
         {/* Owner Name */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-accent mb-1">
             Owner Name
           </label>
           <input
@@ -81,7 +81,7 @@ const AddVehicle = () => {
 
         {/* Category */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-accent mb-1">
             Category
           </label>
           <select
@@ -101,7 +101,7 @@ const AddVehicle = () => {
 
         {/* Price per Day */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-accent mb-1">
             Price Per Day ($)
           </label>
           <input
@@ -114,7 +114,7 @@ const AddVehicle = () => {
 
         {/* Location */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-accent mb-1">
             Location
           </label>
           <input
@@ -130,14 +130,14 @@ const AddVehicle = () => {
           <input
             type="checkbox"
             name="availability"
-            className="w-4 h-4 text-orange-500 focus:ring-orange-400"
+            className="w-4 h-4 text-orange-400 focus:ring-orange-400"
           />
-          <label className="text-gray-700">Available</label>
+          <label className="text-accent">Available</label>
         </div>
 
         {/* Description */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-accent mb-1">
             Description
           </label>
           <textarea
@@ -150,7 +150,7 @@ const AddVehicle = () => {
 
         {/* Cover Image URL */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-accent mb-1">
             Cover Image URL
           </label>
           <input
@@ -162,7 +162,7 @@ const AddVehicle = () => {
         </div>
         {/* Rating Star */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-accent mb-1">
             Rating Star (⭐)
           </label>
           <input
@@ -175,7 +175,7 @@ const AddVehicle = () => {
 
         {/* Average Rating */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-accent mb-1">
             Average Rating
           </label>
           <input
@@ -189,7 +189,7 @@ const AddVehicle = () => {
 
         {/* Rating Count */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-accent mb-1">
             Rating Count
           </label>
           <input
@@ -202,7 +202,7 @@ const AddVehicle = () => {
 
         {/* User Email (read-only) */}
         <div>
-          <label className="block font-medium text-gray-700 mb-1">
+          <label className="block font-medium text-accent mb-1">
             User Email
           </label>
           <input
