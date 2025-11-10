@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../customHooks/useAxiosSecure";
 import useAuth from "../customHooks/useAuth";
 import Loader from "../components/Loader";
@@ -10,10 +10,13 @@ const MyVehicles = () => {
   const [myVehicles, setMyVehicles] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  secureInstance.get(`/myVehicles?email=${user.email}`).then((res) => {
+  useEffect(()=>{
+ secureInstance.get(`/myVehicles?email=${user.email}`).then((res) => {
     setMyVehicles(res.data);
     setLoading(false);
   });
+  }, [secureInstance,user])
+ 
 
   if (loading) {
     return <Loader></Loader>;

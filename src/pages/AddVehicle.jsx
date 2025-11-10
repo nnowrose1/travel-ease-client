@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 const AddVehicle = () => {
   const { user } = useAuth();
   const secureInstance = useAxiosSecure();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const vehicle_name = e.target.vehicle_name.value;
@@ -13,22 +14,25 @@ const AddVehicle = () => {
     const owner = e.target.owner.value;
     const price_per_day = e.target.price_per_day.value;
     const location = e.target.location.value;
-    const availability = e.target.availability.value;
+    const checkbox = e.target.availability.checked;
     const description = e.target.description.value;
     const image = e.target.image.value;
+    const categories = e.target.categories.value;
     const rating_star = e.target.rating_star.value;
-    const avg_rating = e.target.avg_rating.value;
-    const rating_count = e.target.rating_count.value;
+    const avg_rating = Number(e.target.avg_rating.value);
+    const rating_count = Number(e.target.rating_count.value);
     const vehicle_owner_email = e.target.vehicle_owner_email.value;
+    
     const newVehicle = {
       vehicle_name,
       owner,
       category,
       price_per_day,
       location,
-      availability,
+      availability: checkbox,
       description,
       image,
+      categories,
       rating_star,
       rating_count,
       avg_rating,
@@ -37,7 +41,7 @@ const AddVehicle = () => {
 
     secureInstance.post("/allVehicles", newVehicle).then(() => {
       Swal.fire({
-        position: "top-middle",
+        position: "center",
         icon: "success",
         title: "Your vehicle has been added!",
         showConfirmButton: false,
@@ -198,6 +202,22 @@ const AddVehicle = () => {
             placeholder="e.g., 128"
             className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
+        </div>
+
+            {/* Categories */}
+        <div>
+          <label className="block font-medium text-accent mb-1">
+            Categories
+          </label>
+          <select
+            name="categories"
+            required
+            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+          >
+            <option value="">Select Categories</option>
+            <option value="Electric">Electric</option>
+            <option value="Hybrid">Hybrid</option>
+          </select>
         </div>
 
         {/* User Email (read-only) */}
