@@ -7,28 +7,41 @@ import {
   FaCalendarAlt,
 } from "react-icons/fa";
 // import useAxios from "../customHooks/useAxios";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
 import useAxiosSecure from "../customHooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const VehicleDetails = () => {
   const secureInstance = useAxiosSecure();
   const [vehicle, setVehicle] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
-//   console.log(id);
+  //   console.log(id);
 
-    useEffect(() => {
-      secureInstance.get(`/allVehicles/${id}`).then((data) => {
-        setVehicle(data.data);
-        setLoading(false);
+  useEffect(() => {
+    secureInstance.get(`/allVehicles/${id}`).then((data) => {
+      setVehicle(data.data);
+      setLoading(false);
+    });
+  }, [secureInstance, id]);
+
+  const handleBooking = () => {
+    secureInstance.post("/myBookings", vehicle).then(() => {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Vehicle booked successfully!",
+        showConfirmButton: false,
+        timer: 1500,
       });
-    }, [secureInstance, id]);
+    });
+  };
 
-    if(loading){
-        return <Loader></Loader>
-    }
+  if (loading) {
+    return <Loader></Loader>;
+  }
 
   return (
     <div className="container mx-auto bg-blue-50 rounded-2xl shadow-lg overflow-hidden py-8 flex flex-col md:flex-row">
@@ -113,7 +126,9 @@ const VehicleDetails = () => {
         </div>
 
         {/* Rent Button */}
+
         <button
+          onClick={handleBooking}
           className={`mt-6 w-full py-2.5 rounded-full font-medium shadow-md transition-all ${
             vehicle?.availability
               ? "btn-primary"
