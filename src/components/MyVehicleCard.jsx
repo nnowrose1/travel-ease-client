@@ -1,7 +1,7 @@
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router";
 
-const VehicleCard = ({ vehicle, handleDelete }) => {
+const MYVehicleCard = ({ vehicle, handleDelete }) => {
   const { _id } = vehicle;
   // console.log(vehicle);
 
@@ -63,4 +63,4 @@ const VehicleCard = ({ vehicle, handleDelete }) => {
   );
 };
 
-export default VehicleCard;
+export default MYVehicleCard;

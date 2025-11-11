@@ -12,9 +12,11 @@ import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
 import useAxiosSecure from "../customHooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAuth from "../customHooks/useAuth";
 
 const VehicleDetails = () => {
   const secureInstance = useAxiosSecure();
+  const {user} = useAuth();
   const [vehicle, setVehicle] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
@@ -28,7 +30,8 @@ const VehicleDetails = () => {
   }, [secureInstance, id]);
 
   const handleBooking = () => {
-    secureInstance.post("/myBookings", vehicle).then(() => {
+    const bookVehicle= {...vehicle, booked_by: user.email}
+    secureInstance.post("/myBookings", bookVehicle).then(() => {
       Swal.fire({
         position: "center",
         icon: "success",
