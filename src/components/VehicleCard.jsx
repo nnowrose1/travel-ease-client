@@ -9,7 +9,9 @@ const VehicleCard = ({ vehicle }) => {
 
   return (
     <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 max-w-sm">
-      <img src={vehicle?.image} className="w-full h-48 object-cover" />
+      <div className="">
+      <img src={vehicle?.image} className="w-full h-48 object-cover p-2 rounded-2xl" />
+      </div>
 
       <div className="p-5">
         <h2 className="text-lg font-semibold text-accent mb-1">

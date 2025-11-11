@@ -16,6 +16,7 @@ import AddVehicle from "./pages/AddVehicle.jsx";
 import VehicleDetails from "./pages/VehicleDetails.jsx";
 import PrivateRoute from './routes/PrivateRoute.jsx';
 import UpdateVehicle from "./pages/UpdateVehicle.jsx";
+import ErrorPage from "./pages/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
           <UpdateVehicle></UpdateVehicle>
         </PrivateRoute>
       },
+      {
+        path: '*',
+        element: <ErrorPage></ErrorPage>
+      }
     ],
   },
 ]);

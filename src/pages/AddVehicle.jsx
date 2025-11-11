@@ -3,6 +3,7 @@ import useAuth from "../customHooks/useAuth";
 import useAxiosSecure from "../customHooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
+
 const AddVehicle = () => {
   const { user } = useAuth();
   const secureInstance = useAxiosSecure();
@@ -38,6 +39,8 @@ const AddVehicle = () => {
       avg_rating,
       vehicle_owner_email,
     };
+
+   
 
     secureInstance.post("/allVehicles", newVehicle).then(() => {
       Swal.fire({

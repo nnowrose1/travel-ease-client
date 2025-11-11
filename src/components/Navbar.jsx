@@ -4,6 +4,7 @@ import useAuth from "../customHooks/useAuth";
 import toast from "react-hot-toast";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
 import userImg from '../assets/user.jpg'
+import logo from '../assets/logo1.png'
 
 const Navbar = () => {
   const { user, logOut, setUser } = useAuth();
@@ -69,7 +70,11 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-2xl font-bold"><span className="text-orange-400">Lux</span>Trip</a>
+        <a className="btn btn-ghost text-2xl font-bold">
+          <img className="w-18 h-18 rounded-full font-extrabold" src={logo} alt="" />
+          <h1>LuxTrip</h1>
+          {/* <span className="text-orange-400">Lux</span>Trip */}
+          </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>

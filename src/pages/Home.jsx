@@ -1,20 +1,30 @@
-import React from 'react';
-import LatestVehicles from '../components/LatestVehicles';
-import { CiStar } from 'react-icons/ci';
-import { FaStarOfLife } from 'react-icons/fa';
+import React from "react";
+import LatestVehicles from "../components/LatestVehicles";
+import { CiStar } from "react-icons/ci";
+import { FaStarOfLife } from "react-icons/fa";
+import WhyChooseUs from "../components/WhyChooseUs";
+import Testimonials from "../components/Testimonials";
+import Marquee from "react-fast-marquee";
 
 const Home = () => {
-    return (
-        <div className='bg-blue-50'>
-            <div className='flex gap-2 justify-center items-center relative'>
-            <span className='text-orange-400 '><FaStarOfLife ></FaStarOfLife></span>
-            <h2 className='text-accent font-bold text-3xl text-center pt-8'>
-                 Latest Vehicles</h2>
-                 <span className='text-orange-400'><FaStarOfLife></FaStarOfLife></span>
-                 </div>
-           <LatestVehicles></LatestVehicles>
-        </div>
-    );
+  return (
+    <div className="bg-blue-50">
+      <LatestVehicles></LatestVehicles>
+
+      <WhyChooseUs></WhyChooseUs>
+
+      {/* customer testimonial section */}
+   <section className="bg-blue-50 py-12 px-4 text-accent text-center">
+      <h2 className="text-3xl md:text-4xl font-bold text-accent mb-8">
+        What Our <span className="text-orange-400">Customers</span> Say
+      </h2>
+       
+      <Marquee pauseOnHover={true} speed={50}>
+        <Testimonials></Testimonials>
+      </Marquee>
+      </section>
+    </div>
+  );
 };
 
 export default Home;

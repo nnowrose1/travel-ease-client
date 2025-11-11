@@ -1,28 +1,43 @@
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router";
+import { formatDistanceToNow, parseISO } from "date-fns";
 
 const MYVehicleCard = ({ vehicle, handleDelete }) => {
   const { _id } = vehicle;
   // console.log(vehicle);
 
-  const available = vehicle?.availability ? "Available" : "Unavailable";
+  const getAddTime = (dateString) => {
+    if (!dateString) return "Unknown date";
+
+    // Parse the MongoDB ISO string
+    const parsedDate = parseISO(dateString);
+
+    // Return how long ago it was added
+    return formatDistanceToNow(parsedDate, { addSuffix: true });
+  };
+
+  // const available = vehicle?.availability ? "Available" : "Unavailable";
 
   return (
     <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 max-w-sm">
-      <img src={vehicle?.image} className="w-full h-48 object-cover" />
+      <img src={vehicle?.image} className="w-full h-48 object-cover rounded-2xl p-2" />
 
       <div className="p-5">
         <h2 className="text-lg font-semibold text-accent mb-1">
           {vehicle?.vehicle_name}
         </h2>
         <p className="text-sm text-primary mb-2">{vehicle?.category}</p>
-        <div
+
+        <p className="text-sm text-orange-400 mt-2">
+          Added {getAddTime(vehicle?.createdAt)}
+        </p>
+        {/* <div
           className={`text-sm font-medium mb-3 ${
             vehicle?.availability ? "text-green-600" : "text-red-500"
           }`}
         >
           {available}
-        </div>
+        </div> */}
         {/* Rating Section */}
         <div className="flex items-center gap-1 text-yellow-500 mb-2">
           {Array.from({ length: 5 }).map((_, index) => (
@@ -47,9 +62,9 @@ const MYVehicleCard = ({ vehicle, handleDelete }) => {
             </button>
           </Link>
           <Link to={`/updateVehicle/${_id}`}>
-          <button className="btn bg-linear-to-r from-orange-500 to-orange-300 hover:text-xl font-semibold text-white py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
-            Update Vehicle
-          </button>
+            <button className="btn bg-linear-to-r from-orange-500 to-orange-300 hover:text-xl font-semibold text-white py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+              Update Vehicle
+            </button>
           </Link>
           <button
             onClick={() => handleDelete(vehicle._id)}
