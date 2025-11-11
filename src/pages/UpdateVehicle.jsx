@@ -1,21 +1,31 @@
 import React, { useEffect } from "react";
 import useAuth from "../customHooks/useAuth";
 import useAxiosSecure from "../customHooks/useAxiosSecure";
+import useAxios from "../customHooks/useAxios";
 import { useNavigate, useParams } from "react-router";
 import Swal from "sweetalert2";
 import { useState } from "react";
 
 const UpdateVehicle = () => {
-  const { user, vehicles } = useAuth();
+  const { user } = useAuth();
   const { id } = useParams();
   const secureInstance = useAxiosSecure();
+  const axiosInstance = useAxios();
   const navigate = useNavigate();
-  const [vehicle, setVehicle] = useState([]);
+  const [vehicle, setVehicle] = useState(null);
+  const [category, setCategory] = useState(" ");
+  const [categories, setCategories] = useState(' ');
 
   useEffect(() => {
+  axiosInstance.get("/allVehicles").then((data) => {
+    const vehicles = data.data;
     const currentVehicle = vehicles.find((v) => v._id == id);
     setVehicle(currentVehicle);
-  }, [id, vehicles]);
+    setCategory(currentVehicle.category);
+    setCategories(currentVehicle.categories)
+  });
+  }, [axiosInstance, id])
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,6 +54,11 @@ const UpdateVehicle = () => {
     };
 
     secureInstance.patch(`/allVehicles/${id}`, newVehicle).then(() => {
+      // secureInstance.get(`/allVehicles/${id}`).then((res) => {
+      //   setVehicle(res.data);
+      // });
+      // setVehicle(newVehicle);
+
       Swal.fire({
         position: "center",
         icon: "success",
@@ -52,7 +67,7 @@ const UpdateVehicle = () => {
         timer: 1500,
       });
       e.target.reset();
-      setVehicle(newVehicle);
+
       navigate("/myVehicles");
     });
   };
@@ -71,7 +86,7 @@ const UpdateVehicle = () => {
           <input
             type="text"
             name="vehicle_name"
-            defaultValue={vehicle.vehicle_name}
+            defaultValue={vehicle?.vehicle_name}
             className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
@@ -84,29 +99,33 @@ const UpdateVehicle = () => {
           <input
             type="text"
             name="owner"
-            defaultValue={vehicle.owner}
+            defaultValue={vehicle?.owner}
             className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
         {/* Category */}
-        <div>
-          <label className="block font-medium text-accent mb-1">Category</label>
-          <select
-            name="category"
-            defaultValue={vehicle.category}
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
-          >
-            <option value="">Select Category</option>
-            <option value="Sedan">Sedan</option>
-            <option value="SUV">SUV</option>
-            <option value="Van">Van</option>
-            <option value="Truck">Truck</option>
-            <option value="Hatchback">Hatchback</option>
-            <option value="Convertible">Convertible</option>
-          </select>
-        </div>
-
+        {vehicle && (
+          <div>
+            <label className="block font-medium text-accent mb-1">
+              Category
+            </label>
+            <select
+              name="category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            >
+              <option value="">Select Category</option>
+              <option value="Sedan">Sedan</option>
+              <option value="SUV">SUV</option>
+              <option value="Van">Van</option>
+              <option value="Truck">Truck</option>
+              <option value="Hatchback">Hatchback</option>
+              <option value="Convertible">Convertible</option>
+            </select>
+          </div>
+        )}
         {/* Price per Day */}
         <div>
           <label className="block font-medium text-accent mb-1">
@@ -115,7 +134,7 @@ const UpdateVehicle = () => {
           <input
             type="number"
             name="price_per_day"
-            defaultValue={vehicle.price_per_day}
+            defaultValue={vehicle?.price_per_day}
             className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
@@ -126,7 +145,7 @@ const UpdateVehicle = () => {
           <input
             type="text"
             name="location"
-            defaultValue={vehicle.location}
+            defaultValue={vehicle?.location}
             className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
@@ -136,7 +155,9 @@ const UpdateVehicle = () => {
           <input
             type="checkbox"
             name="availability"
-            defaultValue={vehicle.availability}
+            checked={vehicle?.availability || false}
+            onChange={(e) => setVehicle((previous) => ({...previous, availability: e.target.checked}))
+          }
             className="w-4 h-4 text-orange-400 focus:ring-orange-400"
           />
           <label className="text-accent">Available</label>
@@ -149,7 +170,7 @@ const UpdateVehicle = () => {
           </label>
           <textarea
             name="description"
-            defaultValue={vehicle.description}
+            defaultValue={vehicle?.description}
             rows="4"
             className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
@@ -163,7 +184,7 @@ const UpdateVehicle = () => {
           <input
             type="text"
             name="image"
-            defaultValue={vehicle.image}
+            defaultValue={vehicle?.image}
             className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
@@ -175,7 +196,8 @@ const UpdateVehicle = () => {
           </label>
           <select
             name="categories"
-            defaultValue={vehicle.categories}
+             value={categories}
+              onChange={(e) => setCategories(e.target.value)}
             className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           >
             <option value="">Select Categories</option>
@@ -192,7 +214,7 @@ const UpdateVehicle = () => {
           <input
             type="email"
             name="vehicle_owner_email"
-            defaultValue={user.email}
+            defaultValue={user?.email}
             readOnly
             className="w-full border rounded-lg p-2 bg-gray-100 text-primary cursor-not-allowed"
           />
