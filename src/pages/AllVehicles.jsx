@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import useAxios from "../customHooks/useAxios";
 import VehicleCard from "../components/VehicleCard";
 import Loader from '../components/Loader';
+import { motion } from "framer-motion";
 
 const AllVehicles = () => {
   const axiosInstance = useAxios();
@@ -41,7 +42,14 @@ const sortedVehicles = (sort) => {
   }
   return (
     <div className="bg-blue-50 container mx-auto">
-<h1 className='text-accent font-bold text-3xl text-center pt-4'>All Vehicles</h1>
+  <motion.h1
+        className="text-accent font-bold text-3xl text-center pt-4"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2, ease: "easeOut" }}
+      >
+        All Vehicles
+      </motion.h1>
         {/* Sort */}
       <div className="pt-4 pb-2 flex justify-end pr-10">
         <select
@@ -54,7 +62,7 @@ const sortedVehicles = (sort) => {
           <option value="priceDesc">Price High → Low</option>
         </select>
       </div>
-    <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 py-8">
+    <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 py-8 ">
       {vehicles.map((vehicle) => (
         <VehicleCard key={vehicle._id} vehicle={vehicle}></VehicleCard>
       ))}

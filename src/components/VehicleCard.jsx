@@ -1,6 +1,7 @@
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router";
 import Loader from "./Loader";
+import { motion } from "framer-motion";
 
 const VehicleCard = ({ vehicle }) => {
   const { _id } = vehicle;
@@ -8,8 +9,8 @@ const VehicleCard = ({ vehicle }) => {
   const available = vehicle?.availability ? "Available" : "Unavailable";
 
   return (
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 max-w-sm">
-      <div className="">
+    <div className="bg-white hover:-translate-y-4 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 max-w-sm ">
+      <div >
       <img src={vehicle?.image} className="w-full h-48 object-cover p-2 rounded-2xl" />
       </div>
 
@@ -50,7 +51,15 @@ const VehicleCard = ({ vehicle }) => {
         </div>
         <Link to={`/vehicle/${_id}`}>
           {" "}
-          <button className="btn btn-primary w-full">View Details</button>
+           <motion.button
+        className="btn btn-primary w-full"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 300 }}
+      >
+        View Details
+      </motion.button>
+          {/* <button className="btn btn-primary w-full">View Details</button> */}
         </Link>
       </div>
     </div>

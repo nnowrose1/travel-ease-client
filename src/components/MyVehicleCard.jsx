@@ -19,7 +19,7 @@ const MYVehicleCard = ({ vehicle, handleDelete }) => {
   // const available = vehicle?.availability ? "Available" : "Unavailable";
 
   return (
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 max-w-sm">
+    <div className="bg-white rounded-2xl hover:-translate-y-4 shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 max-w-sm">
       <img src={vehicle?.image} className="w-full h-48 object-cover rounded-2xl p-2" />
 
       <div className="p-5">
