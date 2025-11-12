@@ -24,6 +24,8 @@ const Login = () => {
         e.target.reset();
       })
       .catch((error) => {
+        // console.log("Log in error");
+        
         toast.error(error.message);
       });
   };

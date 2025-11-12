@@ -23,8 +23,8 @@ const MyBookingCard = ({ booking }) => {
           <p className="text-accent">
             <span className="font-semibold">Location:</span> {location}
           </p>
-          <p className="text-accent">
-            <span className="font-semibold">Price/Day:</span> ${price_per_day}
+          <p >
+            <span className="font-semibold">Price/Day:</span> <span className=" text-orange-400"> ${price_per_day}</span>
           </p>
 
           {/* <p className="text-sm text-gray-500">

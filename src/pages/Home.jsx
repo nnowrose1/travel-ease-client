@@ -5,10 +5,12 @@ import { FaStarOfLife } from "react-icons/fa";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Testimonials from "../components/Testimonials";
 import Marquee from "react-fast-marquee";
+import Banner from "../components/Banner";
 
 const Home = () => {
   return (
     <div className="bg-blue-50">
+      <Banner></Banner>
       <LatestVehicles></LatestVehicles>
 
       <WhyChooseUs></WhyChooseUs>

@@ -1,12 +1,12 @@
 import React from "react";
 import useAuth from "../customHooks/useAuth";
-import useAxiosSecure from "../customHooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAxios from "../customHooks/useAxios";
 
 
 const AddVehicle = () => {
   const { user } = useAuth();
-  const secureInstance = useAxiosSecure();
+  const axiosInstance = useAxios();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,7 +42,7 @@ const AddVehicle = () => {
 
    
 
-    secureInstance.post("/allVehicles", newVehicle).then(() => {
+    axiosInstance.post("/allVehicles", newVehicle).then(() => {
       Swal.fire({
         position: "center",
         icon: "success",

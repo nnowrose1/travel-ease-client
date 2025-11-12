@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
-import useAxiosSecure from "../customHooks/useAxiosSecure";
+// import useAxiosSecure from "../customHooks/useAxiosSecure";
 import VehicleCard from '../components/VehicleCard'
 import useAuth from "../customHooks/useAuth";
 import MyBookingCard from "../components/MyBookingCard";
 import Loader from "../components/Loader";
+import useAxios from "../customHooks/useAxios";
 
 const MyBookings = () => {
-  const secureInstance = useAxiosSecure();
+  const axiosInstance = useAxios();
   const { user } = useAuth();
   const [myBookings, setMyBookings] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    secureInstance.get(`/myBookings?email=${user.email}`).then((data) => {
+    axiosInstance.get(`/myBookings?email=${user.email}`).then((data) => {
       setMyBookings(data.data);
       setLoading(false);
     });
-  }, [secureInstance, user]);
+  }, [axiosInstance, user]);
   
   if(loading){
     return <Loader></Loader>;
@@ -27,7 +28,7 @@ const MyBookings = () => {
                  My Bookings</h2>
     <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 py-8">
       {myBookings.map((booking) => (
-        <MyBookingCard booking ={booking}> </MyBookingCard>
+        <MyBookingCard key={booking._id} booking ={booking}> </MyBookingCard>
       ))}
     </div>
      </div>

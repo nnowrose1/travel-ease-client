@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import useAuth from "../customHooks/useAuth";
-import useAxiosSecure from "../customHooks/useAxiosSecure";
+// import useAxiosSecure from "../customHooks/useAxiosSecure";
 import useAxios from "../customHooks/useAxios";
 import { useNavigate, useParams } from "react-router";
 import Swal from "sweetalert2";
@@ -9,7 +9,7 @@ import { useState } from "react";
 const UpdateVehicle = () => {
   const { user } = useAuth();
   const { id } = useParams();
-  const secureInstance = useAxiosSecure();
+  // const secureInstance = useAxiosSecure();
   const axiosInstance = useAxios();
   const navigate = useNavigate();
   const [vehicle, setVehicle] = useState(null);
@@ -53,7 +53,7 @@ const UpdateVehicle = () => {
       vehicle_owner_email,
     };
 
-    secureInstance.patch(`/allVehicles/${id}`, newVehicle).then(() => {
+    axiosInstance.patch(`/allVehicles/${id}`, newVehicle).then(() => {
       // secureInstance.get(`/allVehicles/${id}`).then((res) => {
       //   setVehicle(res.data);
       // });

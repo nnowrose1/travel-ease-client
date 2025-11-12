@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
-import useAxiosSecure from "../customHooks/useAxiosSecure";
 import useAuth from "../customHooks/useAuth";
 import Loader from "../components/Loader";
 import MyVehicleCard from '../components/MyVehicleCard';
 import { AuthContext } from "../context/AuthContext";
 import Swal from "sweetalert2";
+import useAxios from "../customHooks/useAxios";
 
 const MyVehicles = () => {
-  const secureInstance = useAxiosSecure();
+  const axiosInstance = useAxios();
   const { user } = useAuth();
   const [myVehicles, setMyVehicles] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
- secureInstance.get(`/myVehicles?email=${user.email}`).then((res) => {
+ axiosInstance.get(`/myVehicles?email=${user.email}`).then((res) => {
     setMyVehicles(res.data);
     setLoading(false);
   });
-  }, [secureInstance,user])
+  }, [axiosInstance,user])
  
 
    const handleDelete = (_id) => {
@@ -31,8 +31,8 @@ const MyVehicles = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        secureInstance
-          .delete(`http://localhost:3000/allVehicles/${_id}`)
+        axiosInstance
+          .delete(`/allVehicles/${_id}`)
           .then(() => {
             const remainingVehicles = myVehicles.filter((v) => v._id !== _id);
             setMyVehicles(remainingVehicles);

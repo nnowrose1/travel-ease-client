@@ -23,9 +23,15 @@ const MYVehicleCard = ({ vehicle, handleDelete }) => {
       <img src={vehicle?.image} className="w-full h-48 object-cover rounded-2xl p-2" />
 
       <div className="p-5">
-        <h2 className="text-lg font-semibold text-accent mb-1">
-          {vehicle?.vehicle_name}
-        </h2>
+        <div className="flex items-start justify-between mb-2">
+          <h2 className="text-lg font-semibold text-accent">
+            {vehicle?.vehicle_name}
+          </h2>
+          <p className="text-xl font-bold text-orange-400">
+            ${vehicle?.price_per_day}
+            <span className="text-sm font-normal text-primary">/day</span>
+          </p>
+        </div>
         <p className="text-sm text-primary mb-2">{vehicle?.category}</p>
 
         <p className="text-sm text-orange-400 mt-2">

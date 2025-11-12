@@ -10,12 +10,13 @@ import {
 import { Link, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
-import useAxiosSecure from "../customHooks/useAxiosSecure";
+// import useAxiosSecure from "../customHooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAuth from "../customHooks/useAuth";
+import useAxios from "../customHooks/useAxios";
 
 const VehicleDetails = () => {
-  const secureInstance = useAxiosSecure();
+  const axiosInstance = useAxios();
   const {user} = useAuth();
   const [vehicle, setVehicle] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -23,15 +24,17 @@ const VehicleDetails = () => {
   //   console.log(id);
 
   useEffect(() => {
-    secureInstance.get(`/allVehicles/${id}`).then((data) => {
+    axiosInstance.get(`/allVehicles/${id}`).then((data) => {
       setVehicle(data.data);
       setLoading(false);
     });
-  }, [secureInstance, id]);
+  }, [axiosInstance, id]);
 
   const handleBooking = () => {
-    const bookVehicle= {...vehicle, booked_by: user.email}
-    secureInstance.post("/myBookings", bookVehicle).then(() => {
+    console.log(vehicle);
+    const {_id, ...vehicleData} = vehicle;
+    const bookVehicle= {...vehicleData, booked_by: user.email}
+    axiosInstance.post("/myBookings", bookVehicle).then(() => {
       Swal.fire({
         position: "center",
         icon: "success",
@@ -52,7 +55,7 @@ const VehicleDetails = () => {
       <div className="md:w-1/2 w-full">
         <img
           src={vehicle?.image}
-          className="w-full h-full object-cover md:rounded-l-2xl"
+          className="w-full h-full object-cover rounded-2xl p-2"
         />
       </div>
 
