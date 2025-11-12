@@ -55,7 +55,7 @@ const VehicleDetails = () => {
       <div className="md:w-1/2 w-full">
         <img
           src={vehicle?.image}
-          className="w-full h-full object-cover rounded-2xl p-2"
+          className="w-full h-96 object-cover rounded-2xl p-2"
         />
       </div>
 

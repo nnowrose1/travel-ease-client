@@ -15,7 +15,7 @@ const Footer = () => {
         <div>
           <div className="flex items-center gap-2 mb-3">
             <FaCarSide className="text-orange-400 text-3xl" />
-            <h2 className="text-2xl font-bold">LuxTrip</h2>
+            <h2 className="text-2xl font-bold">Lux<span className="text-orange-400">Trip</span></h2>
           </div>
           <p className="text-sm leading-relaxed">
             LuxTrip makes your journey smooth and memorable with the best
@@ -91,7 +91,7 @@ const Footer = () => {
 
       <div className="border-t border-orange-200 mt-8 pt-4 text-center text-sm">
         © {new Date().getFullYear()}{" "}
-        <span className="font-semibold">LuxTrip</span>. All rights reserved.
+        <span className="font-semibold">Lux<span className="text-orange-400">Trip</span></span>. All rights reserved.
       </div>
     </footer>
    

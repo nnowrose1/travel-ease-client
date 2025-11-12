@@ -1,16 +1,13 @@
-# React + Vite
+Website Name: LuxTrip
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live link: 
 
-Currently, two official plugins are available:
+Key features: LuxTrip is a vehicle booking and trip management platform where users can:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Register and login pages with form validation. Access to certain pages are restricted to logged-in users.
+* Visitors can see all the listed vehicles and can see if they are available or not.
+* Authenticated users can see the details of each vehicle and can book a vehicle directly from the details page for their perfect ride.
+* AUthenticated users can add a vehicle to our website, they can also update and delete the vehicles that they added.
+* Users can sort vehicles by price and thus can choose the vehicle that matches their budget.
+* Users can switch themes from homepage.
+* Dynamic animation like AOS and framer motion have been used for smooth user experience.

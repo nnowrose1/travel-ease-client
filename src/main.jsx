@@ -17,11 +17,13 @@ import VehicleDetails from "./pages/VehicleDetails.jsx";
 import PrivateRoute from './routes/PrivateRoute.jsx';
 import UpdateVehicle from "./pages/UpdateVehicle.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
+import Loader from "./components/Loader.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    hydrateFallbackElement: <Loader></Loader>,
     children: [
       {
         index: true,

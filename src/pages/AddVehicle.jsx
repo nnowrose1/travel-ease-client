@@ -246,4 +246,25 @@ const AddVehicle = () => {
   );
 };
 
+// const slides = [
+//     {
+//       id: 1,
+//       title: "Your Perfect Ride Awaits",
+//       desc: "Book reliable and affordable vehicles for every trip — anytime, anywhere.",
+//       img: "https://i.ibb.co/1Y5bS3P2/sara-kurfess-x-Cm3-FGX8lb8-unsplash.jpg",
+//     },
+//     {
+//       id: 2,
+//       title: "Drive in Comfort and Style",
+//       desc: "Experience luxury and performance with our top-rated vehicles.",
+//       img: "https://i.ibb.co/nNxcgFsh/r0m0-4-fmzwsm-Pw-ECA-unsplash.jpg",
+//     },
+//     {
+//       id: 3,
+//       title: "Plan Your Perfect Road Trip",
+//       desc: "From city rides to cross-country adventures — we’ve got you covered.",
+//       img: "https://i.ibb.co/RTSG7XS3/istockphoto-1388250875-1024x1024.jpg",
+//     },
+//   ];
+
 export default AddVehicle;
