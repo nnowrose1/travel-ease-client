@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import useAuth from "../customHooks/useAuth";
 import toast from "react-hot-toast";
@@ -8,6 +8,22 @@ import logo from '../assets/logo1.png'
 
 const Navbar = () => {
   const { user, logOut, setUser } = useAuth();
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
+
+
+
   const links = (
     <>
       <li className="font-semibold text-accent">
@@ -79,7 +95,11 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
+
+      
+      
       <div className="navbar-end">
+        
         {/* Tooltip from daisyUI */}
 
         <div
@@ -109,6 +129,14 @@ const Navbar = () => {
             </Link>
           </div>
         )}
+
+        {/* theme */}
+
+         <input
+           onChange={(e) => handleTheme(e.target.checked)}
+           type="checkbox"
+           defaultChecked={localStorage.getItem('theme') === "dark"}
+           className="toggle ml-2"/>
       </div>
     </nav>
   );

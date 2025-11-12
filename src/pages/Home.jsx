@@ -17,7 +17,7 @@ const Home = () => {
 
       {/* customer testimonial section */}
    <section className="bg-blue-50 py-12 px-4 text-accent text-center">
-      <h2 className="text-3xl md:text-4xl font-bold text-accent mb-8">
+      <h2 data-aos="fade-right" className="text-3xl md:text-4xl font-bold text-accent mb-8">
         What Our <span className="text-orange-400">Customers</span> Say
       </h2>
        

@@ -63,8 +63,9 @@ const sortedVehicles = (sort) => {
         </select>
       </div>
     <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 py-8 ">
-      {vehicles.map((vehicle) => (
-        <VehicleCard key={vehicle._id} vehicle={vehicle}></VehicleCard>
+      {vehicles.map((vehicle, index) => (
+        <VehicleCard key={vehicle._id}   index={index}
+       vehicle={vehicle}></VehicleCard>
       ))}
     </div>
     </div>

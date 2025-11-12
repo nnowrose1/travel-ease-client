@@ -69,7 +69,7 @@ const AddVehicle = () => {
             type="text"
             name="vehicle_name"
             required
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border rounded-lg p-2 border-orange-400 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -82,7 +82,7 @@ const AddVehicle = () => {
             type="text"
             name="owner"
             required
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border rounded-lg p-2 border-orange-400 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -94,7 +94,7 @@ const AddVehicle = () => {
           <select
             name="category"
             required
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border rounded-lg p-2 border-orange-400 focus:ring-2 focus:ring-orange-400"
           >
             <option value="">Select Category</option>
             <option value="Sedan">Sedan</option>
@@ -115,7 +115,7 @@ const AddVehicle = () => {
             type="number"
             name="price_per_day"
             required
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border rounded-lg p-2 border-orange-400 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -128,7 +128,7 @@ const AddVehicle = () => {
             type="text"
             name="location"
             required
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border rounded-lg p-2 border-orange-400 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -137,7 +137,7 @@ const AddVehicle = () => {
           <input
             type="checkbox"
             name="availability"
-            className="w-4 h-4 text-orange-400 focus:ring-orange-400"
+            className="w-4 h-4 border-orange-400 text-orange-400 focus:ring-orange-400"
           />
           <label className="text-accent">Available</label>
         </div>
@@ -151,7 +151,7 @@ const AddVehicle = () => {
             name="description"
             rows="4"
             required
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -164,7 +164,7 @@ const AddVehicle = () => {
             type="text"
             name="image"
             required
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
         {/* Rating Star */}
@@ -176,7 +176,7 @@ const AddVehicle = () => {
             type="text"
             name="rating_star"
             placeholder="e.g., ⭐⭐⭐⭐"
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -190,7 +190,7 @@ const AddVehicle = () => {
             step="0.1"
             name="avg_rating"
             placeholder="e.g., 4.5"
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -203,7 +203,7 @@ const AddVehicle = () => {
             type="number"
             name="rating_count"
             placeholder="e.g., 128"
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -215,7 +215,7 @@ const AddVehicle = () => {
           <select
             name="categories"
             required
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           >
             <option value="">Select Categories</option>
             <option value="Electric">Electric</option>
@@ -233,7 +233,7 @@ const AddVehicle = () => {
             name="vehicle_owner_email"
             defaultValue={user.email}
             readOnly
-            className="w-full border rounded-lg p-2 bg-gray-100 text-primary cursor-not-allowed"
+            className="w-full border border-orange-400 rounded-lg p-2 bg-gray-100 text-primary cursor-not-allowed"
           />
         </div>
 

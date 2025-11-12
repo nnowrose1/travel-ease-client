@@ -1,22 +1,26 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
 
-nav a.active{
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+nav a.active {
   font-weight: bold;
-  color: orange
+  color: orange;
 }
 
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  
-   --color-primary: #6a7282 ;
+
+  --color-primary: #6a7282;
   /* --color-secondary: ;   */
   /* --color-base-200: #f3f3f3;
   --color-base-300: #e7e7e7; */
   --color-accent: #1e2939;
 }
 
-.btn-primary{
-  @apply bg-linear-to-r from-gray-900 to-gray-600  font-semibold text-white py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300
+.btn-primary {
+  @apply bg-linear-to-r from-gray-900 to-gray-600  font-semibold text-white py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300;
 }

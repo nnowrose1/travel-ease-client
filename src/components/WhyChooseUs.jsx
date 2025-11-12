@@ -45,10 +45,10 @@ const WhyChooseUs = () => {
   return (
     <section className="pt-12 bg-blue-50">
       <div className="container mx-auto px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
+        <h2 data-aos="fade-left" className="text-3xl md:text-4xl font-bold text-accent mb-4">
           Why <span className="text-orange-400">Choose</span> Us?
         </h2>
-        <p className="text-accent max-w-2xl mx-auto mb-8">
+        <p data-aos="fade-right" className="text-accent max-w-2xl mx-auto mb-8">
           Experience the freedom of effortless travel. We make booking and managing your trips simple, safe, and stress-free.
         </p>
 

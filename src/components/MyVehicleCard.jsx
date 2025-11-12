@@ -1,8 +1,9 @@
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router";
 import { formatDistanceToNow, parseISO } from "date-fns";
+import { motion } from "framer-motion";
 
-const MYVehicleCard = ({ vehicle, handleDelete }) => {
+const MYVehicleCard = ({ vehicle, handleDelete, index }) => {
   const { _id } = vehicle;
   // console.log(vehicle);
 
@@ -19,7 +20,10 @@ const MYVehicleCard = ({ vehicle, handleDelete }) => {
   // const available = vehicle?.availability ? "Available" : "Unavailable";
 
   return (
-    <div className="bg-white rounded-2xl hover:-translate-y-4 shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 max-w-sm">
+    <div
+      data-aos="fade-zoom-in"
+      data-aos-delay={index * 100}
+     className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 max-w-sm">
       <img src={vehicle?.image} className="w-full h-48 object-cover rounded-2xl p-2" />
 
       <div className="p-5">
@@ -63,21 +67,30 @@ const MYVehicleCard = ({ vehicle, handleDelete }) => {
         <div className="flex gap-3">
           <Link to={`/vehicle/${_id}`}>
             {" "}
-            <button className="btn bg-linear-to-r from-gray-900 to-gray-600 font-semibold text-white py-2 px-4 rounded-lg shadow-md hover:text-md hover:shadow-lg transition-all duration-300">
+            <motion.button className="btn bg-linear-to-r from-gray-900 to-gray-600 font-semibold text-white py-2 px-4 rounded-lg shadow-md hover:text-md hover:shadow-lg transition-all duration-300"
+             whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 300 }}>
               View Details
-            </button>
+            </motion.button>
           </Link>
           <Link to={`/updateVehicle/${_id}`}>
-            <button className="btn bg-linear-to-r from-orange-500 to-orange-300 hover:text-xl font-semibold text-white py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+            <motion.button className="btn bg-linear-to-r from-orange-500 to-orange-300  font-semibold text-white py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+             whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 300 }}>
               Update Vehicle
-            </button>
+            </motion.button>
           </Link>
-          <button
+          <motion.button
             onClick={() => handleDelete(vehicle._id)}
-            className="btn btn-primary"
+            className="btn btn-primary "
+             whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 300 }}
           >
             Delete
-          </button>
+          </motion.button>
         </div>
       </div>
     </div>

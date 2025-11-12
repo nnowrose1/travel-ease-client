@@ -52,11 +52,11 @@ const MyVehicles = () => {
 
   return (
     <div className="bg-blue-50 container mx-auto">
-        <h2 className='text-accent font-bold text-3xl text-center pt-8'>
+        <h2 data-aos="fade-right" className='text-accent font-bold text-3xl text-center pt-8'>
                  My Vehicles</h2>
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 py-8">
-        {myVehicles.map((vehicle) => (
-          <MyVehicleCard  key={vehicle._id} vehicle={vehicle} handleDelete={handleDelete}></MyVehicleCard>
+        {myVehicles.map((vehicle, index) => (
+          <MyVehicleCard  key={vehicle._id} index={index} vehicle={vehicle} handleDelete={handleDelete}></MyVehicleCard>
         ))}
       </div>
     </div>

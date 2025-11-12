@@ -3,13 +3,16 @@ import { Link } from "react-router";
 import Loader from "./Loader";
 import { motion } from "framer-motion";
 
-const VehicleCard = ({ vehicle }) => {
+const VehicleCard = ({ vehicle, index }) => {
   const { _id } = vehicle;
 
   const available = vehicle?.availability ? "Available" : "Unavailable";
 
   return (
-    <div className="bg-white hover:-translate-y-4 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 max-w-sm ">
+    <div
+      data-aos="fade-zoom-in"
+      data-aos-delay={index * 100}
+     className="bg-white hover:-translate-y-4 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 max-w-sm ">
       <div >
       <img src={vehicle?.image} className="w-full h-48 object-cover p-2 rounded-2xl" />
       </div>
