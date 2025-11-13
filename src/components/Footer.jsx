@@ -6,6 +6,7 @@ import {
   FaLinkedinIn,
   FaCarSide,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -80,7 +81,7 @@ const Footer = () => {
               <FaInstagram />
             </a>
             <a href="#" className="hover:text-orange-400 transition">
-              <FaTwitter />
+              <FaXTwitter />
             </a>
             <a href="#" className="hover:text-orange-400 transition">
               <FaLinkedinIn />
