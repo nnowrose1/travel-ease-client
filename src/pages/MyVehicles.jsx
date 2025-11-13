@@ -51,13 +51,15 @@ const MyVehicles = () => {
   }
 
   return (
-    <div className="bg-blue-50 container mx-auto">
+    <div className="bg-blue-50 ">
+      <div className="container mx-auto">
         <h2 data-aos="fade-right" className='text-accent font-bold text-3xl text-center pt-8'>
                  My Vehicles</h2>
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 py-8">
         {myVehicles.map((vehicle, index) => (
           <MyVehicleCard  key={vehicle._id} index={index} vehicle={vehicle} handleDelete={handleDelete}></MyVehicleCard>
         ))}
+      </div>
       </div>
     </div>
   );

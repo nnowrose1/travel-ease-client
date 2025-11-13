@@ -23,13 +23,15 @@ const MyBookings = () => {
     return <Loader></Loader>;
   }
   return (
-     <div className="bg-blue-50 container mx-auto">
+     <div className="bg-blue-50 ">
+      <div className="container mx-auto">
         <h2 data-aos="fade-right" className='text-accent font-bold text-3xl text-center pt-8'>
                  My Bookings</h2>
     <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 py-8">
       {myBookings.map((booking) => (
         <MyBookingCard key={booking._id} booking ={booking}> </MyBookingCard>
       ))}
+    </div>
     </div>
      </div>
   );

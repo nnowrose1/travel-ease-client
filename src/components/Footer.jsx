@@ -9,7 +9,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-50 text-accent py-10 mt-12 border-t border-orange-200">
+    <footer className="bg-blue-50 text-accent py-10 pt-12 border-t border-orange-200">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Brand Section */}
         <div>

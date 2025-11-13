@@ -13,7 +13,7 @@ const AddVehicle = () => {
     const vehicle_name = e.target.vehicle_name.value;
     const category = e.target.category.value;
     const owner = e.target.owner.value;
-    const price_per_day = e.target.price_per_day.value;
+    const price_per_day = Number(e.target.price_per_day.value);
     const location = e.target.location.value;
     const checkbox = e.target.availability.checked;
     const description = e.target.description.value;
@@ -54,7 +54,8 @@ const AddVehicle = () => {
     });
   };
   return (
-    <div className="container mx-auto bg-blue-50 shadow-lg rounded-2xl p-8 pt-8">
+    <div className=" bg-blue-50">
+      <div className="container mx-auto  shadow-lg rounded-2xl p-8 pt-8">
       <h2 className="text-accent font-bold text-3xl text-center mb-6">
         Add a Vehicle
       </h2>
@@ -69,7 +70,7 @@ const AddVehicle = () => {
             type="text"
             name="vehicle_name"
             required
-            className="w-full border rounded-lg p-2 border-orange-400 focus:ring-2 focus:ring-orange-400"
+            className="w-full border dark:text-primary rounded-lg p-2 border-orange-400 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -82,7 +83,7 @@ const AddVehicle = () => {
             type="text"
             name="owner"
             required
-            className="w-full border rounded-lg p-2 border-orange-400 focus:ring-2 focus:ring-orange-400"
+            className="w-full border dark:text-primary rounded-lg p-2 border-orange-400 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -94,7 +95,7 @@ const AddVehicle = () => {
           <select
             name="category"
             required
-            className="w-full border rounded-lg p-2 border-orange-400 focus:ring-2 focus:ring-orange-400"
+            className="w-full border dark:text-primary rounded-lg p-2 dark:bg-accent border-orange-400 focus:ring-2 focus:ring-orange-400"
           >
             <option value="">Select Category</option>
             <option value="Sedan">Sedan</option>
@@ -115,7 +116,7 @@ const AddVehicle = () => {
             type="number"
             name="price_per_day"
             required
-            className="w-full border rounded-lg p-2 border-orange-400 focus:ring-2 focus:ring-orange-400"
+            className="w-full border dark:text-primary rounded-lg p-2 border-orange-400 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -128,7 +129,7 @@ const AddVehicle = () => {
             type="text"
             name="location"
             required
-            className="w-full border rounded-lg p-2 border-orange-400 focus:ring-2 focus:ring-orange-400"
+            className="w-full dark:text-primary border rounded-lg p-2 border-orange-400 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -137,7 +138,7 @@ const AddVehicle = () => {
           <input
             type="checkbox"
             name="availability"
-            className="w-4 h-4 border-orange-400 text-orange-400 focus:ring-orange-400"
+            className="w-4 h-4 dark:text-primary border-orange-400 text-orange-400 focus:ring-orange-400"
           />
           <label className="text-accent">Available</label>
         </div>
@@ -151,7 +152,7 @@ const AddVehicle = () => {
             name="description"
             rows="4"
             required
-            className="w-full border border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border dark:text-primary border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -164,7 +165,7 @@ const AddVehicle = () => {
             type="text"
             name="image"
             required
-            className="w-full border border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border dark:text-primary border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
         {/* Rating Star */}
@@ -176,7 +177,7 @@ const AddVehicle = () => {
             type="text"
             name="rating_star"
             placeholder="e.g., ⭐⭐⭐⭐"
-            className="w-full border border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border dark:text-primary dark:bg-accent border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -190,7 +191,7 @@ const AddVehicle = () => {
             step="0.1"
             name="avg_rating"
             placeholder="e.g., 4.5"
-            className="w-full border border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border dark:text-primary dark:bg-accent border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -203,7 +204,7 @@ const AddVehicle = () => {
             type="number"
             name="rating_count"
             placeholder="e.g., 128"
-            className="w-full border border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border dark:text-primary dark:bg-accent border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -215,7 +216,7 @@ const AddVehicle = () => {
           <select
             name="categories"
             required
-            className="w-full border border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border dark:text-primary dark:bg-accent border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           >
             <option value="">Select Categories</option>
             <option value="Electric">Electric</option>
@@ -233,7 +234,7 @@ const AddVehicle = () => {
             name="vehicle_owner_email"
             defaultValue={user.email}
             readOnly
-            className="w-full border border-orange-400 rounded-lg p-2 bg-gray-100 text-primary cursor-not-allowed"
+            className="w-full dark:text-primary border border-orange-400 rounded-lg p-2 bg-gray-100 text-primary cursor-not-allowed"
           />
         </div>
 
@@ -242,29 +243,11 @@ const AddVehicle = () => {
           Add Vehicle
         </button>
       </form>
+      </div>
     </div>
   );
 };
 
-// const slides = [
-//     {
-//       id: 1,
-//       title: "Your Perfect Ride Awaits",
-//       desc: "Book reliable and affordable vehicles for every trip — anytime, anywhere.",
-//       img: "https://i.ibb.co/1Y5bS3P2/sara-kurfess-x-Cm3-FGX8lb8-unsplash.jpg",
-//     },
-//     {
-//       id: 2,
-//       title: "Drive in Comfort and Style",
-//       desc: "Experience luxury and performance with our top-rated vehicles.",
-//       img: "https://i.ibb.co/nNxcgFsh/r0m0-4-fmzwsm-Pw-ECA-unsplash.jpg",
-//     },
-//     {
-//       id: 3,
-//       title: "Plan Your Perfect Road Trip",
-//       desc: "From city rides to cross-country adventures — we’ve got you covered.",
-//       img: "https://i.ibb.co/RTSG7XS3/istockphoto-1388250875-1024x1024.jpg",
-//     },
-//   ];
+
 
 export default AddVehicle;

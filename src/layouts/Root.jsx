@@ -11,7 +11,7 @@ const Root = () => {
      useEffect(() => {
     AOS.init({
       duration: 1000, // Animation duration (ms)
-      once: true,     // Animate only once
+      // once: true,     // Animate only once
       easing: "ease-in-out", 
     });
   }, []);

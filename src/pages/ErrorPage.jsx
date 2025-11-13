@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router";
 import Navbar from "../components/Navbar";
 import errorIcon from "../assets/error-404.png";
+import {motion } from "framer-motion"
 
 const ErrorPage = () => {
   const navigate = useNavigate();
@@ -15,9 +16,15 @@ const ErrorPage = () => {
         The page you are looking for is not available.
       </p>
       {/* button a click korle ek step back a jabe */}
-      <button onClick={() => navigate(-1)} className=" btn btn-primary px-10">
-        Go Back!
-      </button>
+      <motion.button
+  whileHover={{ scale: 1.5 }}
+  whileTap={{ scale: 0.9 }}
+  transition={{ type: "spring", stiffness: 300 }}
+  onClick={() => navigate(-1)}
+  className="btn btn-primary px-10"
+>
+  Go Back!
+</motion.button>
     </div>
   );
 };

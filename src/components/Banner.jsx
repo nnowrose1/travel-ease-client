@@ -15,7 +15,7 @@ const Banner = () => {
    const slides = [
     {
       id: 1,
-      image: "https://i.ibb.co.com/Ng8jgzZn/kenny-eliason-y-Dekvy-Z52d-U-unsplash.jpg",
+      image: "https://i.ibb.co/Ng8jgzZn/kenny-eliason-y-Dekvy-Z52d-U-unsplash.jpg",
       title: "Your Perfect Ride Awaits",
       desc: "Book reliable and affordable vehicles for every trip — anytime, anywhere.",
     },
@@ -27,7 +27,7 @@ const Banner = () => {
     },
     {
       id: 3,
-      image: "https://i.ibb.co.com/XNQqp0p/family-summer-forest-by-open-trunk.jpg",
+      image: "https://i.ibb.co/XNQqp0p/family-summer-forest-by-open-trunk.jpg",
       title: "Plan Your Perfect Road Trip",
        desc: "From city rides to cross-country adventures — we’ve got you covered.",
     },
@@ -47,6 +47,7 @@ const Banner = () => {
         effect="fade"
         fadeEffect={{ crossFade: true }}
         modules={[Autoplay, Pagination, Navigation, EffectFade]}
+         onSlideChange={() => Aos.refresh()}
         className=" mySwiper"
       >
         {slides.map((slide) => (

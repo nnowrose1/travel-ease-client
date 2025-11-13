@@ -11,13 +11,15 @@ const AllVehicles = () => {
   const [sort, setSort] = useState('');
 
   useEffect(() => {
-    axiosInstance.get("/allVehicles").then((data) => {
+    setLoading(true);
+    const url = sort ? `/vehicles/sort?sort=${sort}` : "/allVehicles";
+    axiosInstance.get(url).then((data) => {
       setVehicles(data.data);
       setLoading(false);
     });
 
 
-  }, [axiosInstance]);
+  }, [axiosInstance, sort]);
 
 //   axiosInstance.get("/allVehicles").then((data) => {
 //     setVehicles(data.data);
@@ -26,36 +28,37 @@ const AllVehicles = () => {
 const handleSort = (e) => {
   const value = e.target.value;
   setSort(value);
-  sortedVehicles(value);
+  // sortedVehicles(value);
 }
 
-const sortedVehicles = (sort) => {
-  setLoading(true);
- axiosInstance.get(`/vehicles/sort?sort=${sort}`).then((data) => {
-      setVehicles(data.data);
-      setLoading(false)
-    })
+// const sortedVehicles = (sort) => {
+//   setLoading(true);
+//  axiosInstance.get(`/vehicles/sort?sort=${sort}`).then((data) => {
+//       setVehicles(data.data);
+//       setLoading(false)
+//     })
 
-}
+// }
   if(loading){
     return <Loader></Loader>
   }
   return (
-    <div className="bg-blue-50 container mx-auto">
+    <div className="bg-blue-50 ">
+      <div className="container mx-auto">
   <motion.h1
         className="text-accent font-bold text-3xl text-center pt-4"
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 2, ease: "easeOut" }}
       >
-        All Vehicles
+       Explore All Our Vehicles
       </motion.h1>
         {/* Sort */}
       <div className="pt-4 pb-2 flex justify-end pr-10">
         <select
           value={sort}
           onChange={handleSort}
-          className="border px-2 py-1 rounded"
+          className="border px-2 py-1 rounded dark:bg-primary dark:text-accent"
         >
           <option value="">Sort by Price</option>
           <option value="priceAsc">Price Low → High</option>
@@ -67,6 +70,7 @@ const sortedVehicles = (sort) => {
         <VehicleCard key={vehicle._id}   index={index}
        vehicle={vehicle}></VehicleCard>
       ))}
+    </div>
     </div>
     </div>
   );

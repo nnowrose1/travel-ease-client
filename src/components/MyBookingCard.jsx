@@ -1,10 +1,11 @@
 import React from "react";
 
 
+
 const MyBookingCard = ({ booking }) => {
   const { vehicle_name, image, category, price_per_day, location } =
     booking || {};
-    
+   
 
   return (
     <div className="bg-white shadow-md rounded-2xl p-4 sm:p-6 hover:shadow-lg transition-all duration-300 border border-gray-100 hover:-translate-y-4">
@@ -24,13 +25,12 @@ const MyBookingCard = ({ booking }) => {
             <span className="font-semibold">Location:</span> {location}
           </p>
           <p >
-            <span className="font-semibold">Price/Day:</span> <span className=" text-orange-400"> ${price_per_day}</span>
+            <span className="font-semibold dark:text-primary">Price/Day:</span> <span className=" text-orange-400"> ${price_per_day}</span>
           </p>
 
-          {/* <p className="text-sm text-gray-500">
-            Added{" "}
-            {formatDistanceToNow({ createdAt }, { addSuffix: true })}
-          </p> */}
+           {/* <p className="text-sm text-orange-400 mt-2">
+          Added {getAddTime(createdAt)}
+        </p> */}
         </div>
       </div>
       <div className="flex justify-center items-center mt-4">

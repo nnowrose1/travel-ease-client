@@ -34,14 +34,15 @@ const Navbar = () => {
       </li>
       {user && (
         <>
-          <li className="font-semibold">
-            <NavLink to={"/addVehicle"}>Add Vehicle</NavLink>
-          </li>
+          
           <li className="font-semibold">
             <NavLink to={"/myVehicles"}>My Vehicles</NavLink>
           </li>
           <li className="font-semibold">
             <NavLink to={"/myBookings"}>My Bookings</NavLink>
+          </li>
+          <li className="font-semibold">
+            <NavLink to={"/addVehicle"}>Add Vehicle</NavLink>
           </li>
         </>
       )}
@@ -86,8 +87,8 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <div className="btn btn-ghost text-2xl font-bold flex flex-col md:flex-row">
-          <img className="w-14 h-14 rounded-full font-extrabold" src={logo} alt="" />
+        <div className="text-lg md:text-2xl font-bold flex flex-col items-center md:flex-row">
+          <img className="w-10 md:w-14 h-10 md:h-14 rounded-full font-extrabold" src={logo} alt="" />
           <h1>Lux<span className="text-orange-400">Trip</span></h1>
           {/* <span className="text-orange-400">Lux</span>Trip */}
           </div>
@@ -108,7 +109,7 @@ const Navbar = () => {
         >
           {user && (
             <img
-              className="h-12 w-12 rounded-full cursor-pointer"
+              className="h-8 md:h-12 w-8 md:w-12 rounded-full cursor-pointer"
               src={user?.photoURL ? user?.photoURL : userImg }
             ></img>
           )}

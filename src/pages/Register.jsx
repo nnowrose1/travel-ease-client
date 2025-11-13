@@ -75,12 +75,11 @@ const Register = () => {
   };
 
   return (
-    <div className="hero container mx-auto bg-blue-50 text-black min-h-screen">
+    <div className="hero container mx-auto bg-blue-50 text-black min-h-screen pb-4">
       <div className="hero-content  flex-col lg:flex-row-reverse">
-        <div className="text-center">
-          <h1 className="text-5xl font-bold">Please Signup!</h1>
-        </div>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        
+        <div className="card bg-white w-full max-w-sm shrink-0 shadow-2xl">
+          <h1 className="text-3xl text-accent text-center font-bold mt-5">Please Signup!</h1>
           <div className="card-body">
             <form onSubmit={handleRegister}>
               <fieldset className="fieldset">
@@ -88,7 +87,7 @@ const Register = () => {
                 <input
                   type="text"
                   name="name"
-                  className="input"
+                  className="input dark:bg-accent"
                   placeholder="Name"
                   required
                 />
@@ -96,14 +95,14 @@ const Register = () => {
                 <input
                   type="text"
                   name="photo"
-                  className="input"
+                  className="input dark:bg-accent"
                   placeholder="Photo URL"
                 />
                 <label className="label">Email</label>
                 <input
                   type="email"
                   name="email"
-                  className="input"
+                  className="input dark:bg-accent"
                   placeholder="Email"
                   required
                 />
@@ -112,7 +111,7 @@ const Register = () => {
                   <input
                     type={toggleEyeIcon ? "text" : "password"}
                     name="password"
-                    className="input"
+                    className="input dark:bg-accent"
                     placeholder="Password"
                     required
                   />
@@ -132,7 +131,7 @@ const Register = () => {
                 {error && <p className="text-red-400">{error}</p>}
 
                 <label className="label">
-                  <input type="checkbox" name="terms" className="checkbox" />
+                  <input type="checkbox" name="terms" className="checkbox dark:bg-accent" />
                   Please accept our Terms and Conditions!{" "}
                 </label>
 

@@ -5,6 +5,7 @@ import useAxios from "../customHooks/useAxios";
 import { useNavigate, useParams } from "react-router";
 import Swal from "sweetalert2";
 import { useState } from "react";
+import Loader from '../components/Loader';
 
 const UpdateVehicle = () => {
   const { user } = useAuth();
@@ -15,12 +16,14 @@ const UpdateVehicle = () => {
   const [vehicle, setVehicle] = useState(null);
   const [category, setCategory] = useState(" ");
   const [categories, setCategories] = useState(' ');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
   axiosInstance.get("/allVehicles").then((data) => {
     const vehicles = data.data;
     const currentVehicle = vehicles.find((v) => v._id == id);
     setVehicle(currentVehicle);
+    setLoading(false);
     setCategory(currentVehicle.category);
     setCategories(currentVehicle.categories)
   });
@@ -71,6 +74,10 @@ const UpdateVehicle = () => {
       navigate("/myVehicles");
     });
   };
+
+  if(loading){
+    return <Loader></Loader>
+  }
   return (
     <div className="container mx-auto bg-blue-50 shadow-lg rounded-2xl p-8 pt-8">
       <h2 className="text-accent font-bold text-3xl text-center mb-6">
@@ -87,7 +94,7 @@ const UpdateVehicle = () => {
             type="text"
             name="vehicle_name"
             defaultValue={vehicle?.vehicle_name}
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border border-orange-400 dark:text-primary rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -100,7 +107,7 @@ const UpdateVehicle = () => {
             type="text"
             name="owner"
             defaultValue={vehicle?.owner}
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border border-orange-400 dark:text-primary rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -114,7 +121,7 @@ const UpdateVehicle = () => {
               name="category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+              className="w-full border border-orange-400 dark:text-primary dark:bg-accent rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
             >
               <option value="">Select Category</option>
               <option value="Sedan">Sedan</option>
@@ -135,7 +142,7 @@ const UpdateVehicle = () => {
             type="number"
             name="price_per_day"
             defaultValue={vehicle?.price_per_day}
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border border-orange-400 dark:text-primary rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -146,7 +153,7 @@ const UpdateVehicle = () => {
             type="text"
             name="location"
             defaultValue={vehicle?.location}
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border border-orange-400 dark:text-primary rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -172,7 +179,7 @@ const UpdateVehicle = () => {
             name="description"
             defaultValue={vehicle?.description}
             rows="4"
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border border-orange-400 dark:text-primary rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -185,7 +192,7 @@ const UpdateVehicle = () => {
             type="text"
             name="image"
             defaultValue={vehicle?.image}
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border border-orange-400 dark:text-primary rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -198,7 +205,7 @@ const UpdateVehicle = () => {
             name="categories"
              value={categories}
               onChange={(e) => setCategories(e.target.value)}
-            className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border border-orange-400 dark:text-primary dark:bg-accent rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           >
             <option value="">Select Categories</option>
             <option value="Electric">Electric</option>
@@ -216,7 +223,7 @@ const UpdateVehicle = () => {
             name="vehicle_owner_email"
             defaultValue={user?.email}
             readOnly
-            className="w-full border rounded-lg p-2 bg-gray-100 text-primary cursor-not-allowed"
+            className="w-full border border-orange-400 rounded-lg p-2 bg-gray-100 text-primary cursor-not-allowed"
           />
         </div>
 
