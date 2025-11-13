@@ -1,6 +1,6 @@
 Website Name: LuxTrip
 
-Live link: 
+Live link: https://velvety-heliotrope-609ed2.netlify.app/
 
 Key features: LuxTrip is a vehicle booking and trip management platform where users can:
 
