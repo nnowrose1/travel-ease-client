@@ -10,11 +10,11 @@ const AllVehicles = () => {
   const [loading, setLoading] = useState(true);
   const [sort, setSort] = useState('');
 
- const handleSort = (e) => {
-  const value = e.target.value;
-  setSort(value);
-  // sortedVehicles(value);
-}
+//  const handleSort = (e) => {
+//   const value = e.target.value;
+//   setSort(value);
+//   // sortedVehicles(value);
+// }
  
   useEffect(() => {
     setLoading(true);
@@ -31,11 +31,11 @@ const AllVehicles = () => {
 //     setVehicles(data.data);
 //   });
 
-// const handleSort = (e) => {
-//   const value = e.target.value;
-//   setSort(value);
-//   // sortedVehicles(value);
-// }
+const handleSort = (e) => {
+  const value = e.target.value;
+  setSort(value);
+  // sortedVehicles(value);
+}
 
 // const sortedVehicles = (sort) => {
 //   setLoading(true);
