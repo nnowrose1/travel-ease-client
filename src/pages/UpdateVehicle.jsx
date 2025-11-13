@@ -35,7 +35,7 @@ const UpdateVehicle = () => {
     const vehicle_name = e.target.vehicle_name.value;
     const category = e.target.category.value;
     const owner = e.target.owner.value;
-    const price_per_day = e.target.price_per_day.value;
+    const price_per_day = Number(e.target.price_per_day.value);
     const location = e.target.location.value;
     const checkbox = e.target.availability.checked;
     const description = e.target.description.value;
