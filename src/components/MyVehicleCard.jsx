@@ -74,7 +74,7 @@ const MYVehicleCard = ({ vehicle, handleDelete, index }) => {
               View Details
             </motion.button>
           </Link>
-          <Link to={`/updateVehicle/${_id}`}>
+          <Link to={`/dashboard/updateVehicle/${_id}`}>
             <motion.button className="btn bg-linear-to-r from-orange-500 to-orange-300  font-semibold text-white py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
              whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}

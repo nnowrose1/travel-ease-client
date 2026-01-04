@@ -6,25 +6,43 @@ import WhyChooseUs from "../components/WhyChooseUs";
 import Testimonials from "../components/Testimonials";
 import Marquee from "react-fast-marquee";
 import Banner from "../components/Banner";
+import Categories from "../components/Categories";
+import Newsletter from "../components/Newsletter";
+import Statistics from "../components/Statistics";
+import FAQSection from "../components/FAQSection";
 
 const Home = () => {
   return (
     <div className="bg-blue-50">
-      <Banner></Banner>
+      <div className="mt-18.5">
+        <Banner></Banner>
+      </div>
+
       <LatestVehicles></LatestVehicles>
+
+      <Categories></Categories>
 
       <WhyChooseUs></WhyChooseUs>
 
+      <Statistics></Statistics>
+
       {/* customer testimonial section */}
-   <section className="bg-blue-50 py-12 px-4 text-accent text-center">
-      <h2 data-aos="fade-right" className="text-3xl md:text-4xl font-bold text-accent mb-8">
-        What Our <span className="text-orange-400">Customers</span> Say
-      </h2>
-       
-      <Marquee pauseOnHover={true} speed={50}>
-        <Testimonials></Testimonials>
-      </Marquee>
+      <section className="bg-blue-50 py-12 px-4 text-accent text-center">
+        <h2
+          data-aos="fade-right"
+          className="text-3xl md:text-4xl font-bold text-accent mb-8"
+        >
+          What Our <span className="text-orange-400">Customers</span> Say
+        </h2>
+
+        <Marquee pauseOnHover={true} speed={50}>
+          <Testimonials></Testimonials>
+        </Marquee>
       </section>
+
+      <FAQSection></FAQSection>
+
+      <Newsletter></Newsletter>
     </div>
   );
 };

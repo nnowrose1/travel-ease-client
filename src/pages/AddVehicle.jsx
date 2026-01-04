@@ -54,8 +54,8 @@ const AddVehicle = () => {
     });
   };
   return (
-    <div className=" bg-blue-50">
-      <div className="container mx-auto  shadow-lg rounded-2xl p-8 pt-8">
+    <div className=" bg-blue-50 rounded-lg">
+      <div className="container mx-auto  shadow-lg rounded-2xl p-8">
       <h2 className="text-accent font-bold text-3xl text-center mb-6">
         Add a Vehicle
       </h2>
@@ -232,7 +232,7 @@ const AddVehicle = () => {
           <input
             type="email"
             name="vehicle_owner_email"
-            defaultValue={user.email}
+            defaultValue={user?.email}
             readOnly
             className="w-full dark:text-primary border border-orange-400 rounded-lg p-2 bg-gray-100 text-primary cursor-not-allowed"
           />

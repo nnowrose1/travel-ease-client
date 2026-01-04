@@ -71,7 +71,7 @@ const UpdateVehicle = () => {
       });
       e.target.reset();
 
-      navigate("/myVehicles");
+      navigate("/dashboard/myVehicles");
     });
   };
 
