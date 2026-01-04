@@ -50,7 +50,7 @@ const Newsletter = () => {
               required
               placeholder="Enter your email address"
               className="
-                w-full sm:w-auto flex-1 border border-gray-300 rounded-full px-6 py-3 
+                w-full dark:text-primary sm:w-auto flex-1 border border-gray-300 rounded-full px-6 py-3 
                 focus:outline-none focus:ring-2 focus:ring-orange-400
               "
             />

@@ -147,6 +147,15 @@ const Navbar = () => {
       group-focus-within:pointer-events-auto
     "
             >
+               <li>
+                <Link
+                  to="/dashboard/myProfile"
+                  className="flex items-center gap-2 text-accent"
+                >
+                  My Profile
+                </Link>
+              </li>
+
               <li>
                 <Link
                   to="/dashboard/myVehicles"

@@ -4,6 +4,7 @@ import { Link, NavLink, Outlet } from "react-router";
 import { FaCar } from "react-icons/fa";
 import { TbBrandBooking } from "react-icons/tb";
 import { IoMdAddCircle } from "react-icons/io";
+import { CgProfile } from "react-icons/cg";
 
 const DashboardLayout = () => {
   return (
@@ -32,7 +33,7 @@ const DashboardLayout = () => {
             </svg>
           </label>
           <div className="text-lg md:text-xl font-bold text-accent px-4">
-            Asset Management Dashboard
+            Vehicle Management Dashboard
           </div>
         </nav>
 
@@ -93,13 +94,13 @@ const DashboardLayout = () => {
 
             <>
               {/* List item: Homepage*/}
-              <li>
+              {/* <li>
                 <NavLink
                   to="/dashboard/homepage"
                   className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                   data-tip="Homepage"
                 >
-                  {/* Home icon */}
+                 
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -116,7 +117,9 @@ const DashboardLayout = () => {
 
                   <span className="is-drawer-close:hidden">Homepage</span>
                 </NavLink>
-              </li>
+              </li> */}
+
+                
 
               {/* List item: My Vehicles*/}
               <li>
@@ -167,6 +170,20 @@ const DashboardLayout = () => {
                   <span className="is-drawer-close:hidden">Add vehicle</span>
                 </NavLink>
               </li>
+
+               {/* List item: My Profile*/}
+                <li>
+                  <NavLink
+                    to="/dashboard/myProfile"
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="My Profile"
+                  >
+                    <CgProfile />
+                    <span className="is-drawer-close:hidden">
+                      My Profile
+                    </span>
+                  </NavLink>
+                </li>
             </>
           </ul>
         </div>

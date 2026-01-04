@@ -21,6 +21,7 @@ import Loader from "./components/Loader.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 import ContactUs from "./pages/ContactUs.jsx";
 import DashboardLayout from "./layouts/DashboardLayout.jsx";
+import MyProfile from "./pages/MyProfile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
     ),
     hydrateFallbackElement: <Loader></Loader>,
     children: [
+       {
+        path: "myProfile",
+        element: <MyProfile></MyProfile>,
+      },
       {
         path: "myVehicles",
         element: <MyVehicles></MyVehicles>,

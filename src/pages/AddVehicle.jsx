@@ -239,7 +239,7 @@ const AddVehicle = () => {
         </div>
 
         {/* Submit Button */}
-        <button type="submit" className="w-full btn-primary">
+        <button type="submit" className="w-full btn-primary hover:text-xl">
           Add Vehicle
         </button>
       </form>
