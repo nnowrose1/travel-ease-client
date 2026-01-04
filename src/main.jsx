@@ -14,10 +14,13 @@ import MyVehicles from "./pages/MyVehicles.jsx";
 import MyBookings from "./pages/MyBookings.jsx";
 import AddVehicle from "./pages/AddVehicle.jsx";
 import VehicleDetails from "./pages/VehicleDetails.jsx";
-import PrivateRoute from './routes/PrivateRoute.jsx';
+import PrivateRoute from "./routes/PrivateRoute.jsx";
 import UpdateVehicle from "./pages/UpdateVehicle.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import Loader from "./components/Loader.jsx";
+import AboutUs from "./pages/AboutUs.jsx";
+import ContactUs from "./pages/ContactUs.jsx";
+import DashboardLayout from "./layouts/DashboardLayout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +33,14 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
+        path: "/aboutUs",
+        element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "/contactUs",
+        element: <ContactUs></ContactUs>,
+      },
+      {
         path: "/login",
         element: <Login></Login>,
       },
@@ -38,43 +49,45 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: '/allVehicles',
-        element: <AllVehicles></AllVehicles>
+        path: "/allVehicles",
+        element: <AllVehicles></AllVehicles>,
       },
       {
-         path: '/vehicle/:id',
-        element: <PrivateRoute>
-          <VehicleDetails></VehicleDetails>
-        </PrivateRoute>
+        path: "/vehicle/:id",
+        element: <VehicleDetails></VehicleDetails>,
+      },
+
+      {
+        path: "*",
+        element: <ErrorPage></ErrorPage>,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
+    hydrateFallbackElement: <Loader></Loader>,
+    children: [
+      {
+        path: "myVehicles",
+        element: <MyVehicles></MyVehicles>,
       },
       {
-        path: '/myVehicles',
-        element: <PrivateRoute>
-          <MyVehicles></MyVehicles>
-        </PrivateRoute>
+        path: "myBookings",
+        element: <MyBookings></MyBookings>,
       },
       {
-        path:'/myBookings',
-        element: <PrivateRoute>
-          <MyBookings></MyBookings>
-        </PrivateRoute>
+        path: "addVehicle",
+        element: <AddVehicle></AddVehicle>,
       },
       {
-        path:'/addVehicle',
-        element: <PrivateRoute>
-          <AddVehicle></AddVehicle>
-        </PrivateRoute>
+        path: "updateVehicle/:id",
+        element: <UpdateVehicle></UpdateVehicle>,
       },
-       {
-         path: '/updateVehicle/:id',
-        element: <PrivateRoute>
-          <UpdateVehicle></UpdateVehicle>
-        </PrivateRoute>
-      },
-      {
-        path: '*',
-        element: <ErrorPage></ErrorPage>
-      }
     ],
   },
 ]);
@@ -84,6 +97,5 @@ createRoot(document.getElementById("root")).render(
     <AuthProvider>
       <RouterProvider router={router}></RouterProvider>
     </AuthProvider>
-    
   </StrictMode>
 );

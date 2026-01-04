@@ -7,7 +7,7 @@ import {
   FaCalendarAlt,
 } from "react-icons/fa";
 // import useAxios from "../customHooks/useAxios";
-import { Link, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
 // import useAxiosSecure from "../customHooks/useAxiosSecure";
@@ -21,6 +21,7 @@ const VehicleDetails = () => {
   const [vehicle, setVehicle] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
+  const navigate = useNavigate();
   //   console.log(id);
 
   useEffect(() => {
@@ -33,6 +34,10 @@ const VehicleDetails = () => {
   const handleBooking = () => {
     console.log(vehicle);
     const {_id, ...vehicleData} = vehicle;
+    if(!user?.email) {
+      navigate('/login');
+      return;
+    }
     const bookVehicle= {...vehicleData, booked_by: user.email}
     axiosInstance.post("/myBookings", bookVehicle).then(() => {
       Swal.fire({
@@ -50,7 +55,7 @@ const VehicleDetails = () => {
   }
 
   return (
-    <div className="container mx-auto bg-blue-50 rounded-2xl shadow-lg overflow-hidden py-8 flex flex-col md:flex-row">
+    <div className="container mx-auto bg-blue-50 mt-18.5 rounded-2xl shadow-lg overflow-hidden py-8 flex flex-col md:flex-row">
       {/* Image Section */}
       <div className="md:w-1/2 w-full">
         <img

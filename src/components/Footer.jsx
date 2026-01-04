@@ -7,6 +7,7 @@ import {
   FaCarSide,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import logo from '../assets/logoo.png'
 
 const Footer = () => {
   return (
@@ -14,8 +15,9 @@ const Footer = () => {
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Brand Section */}
         <div>
-          <div className="flex items-center gap-2 mb-3">
-            <FaCarSide className="text-orange-400 text-3xl" />
+          <div className="flex items-center gap-1 mb-3">
+            {/* <FaCarSide className="text-orange-400 text-3xl" /> */}
+            <img className="w-12 h-12 rounded-full" src={logo} alt="Logo" />
             <h2 className="text-2xl font-bold">Lux<span className="text-orange-400">Trip</span></h2>
           </div>
           <p className="text-sm leading-relaxed">
@@ -43,12 +45,12 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="/about" className="hover:text-orange-400 transition">
+              <a href="/aboutUs" className="hover:text-orange-400 transition">
                 About Us
               </a>
             </li>
             <li>
-              <a href="/contact" className="hover:text-orange-400 transition">
+              <a href="/contactUs" className="hover:text-orange-400 transition">
                 Contact
               </a>
             </li>

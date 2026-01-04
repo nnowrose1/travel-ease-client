@@ -17,7 +17,10 @@ const Root = () => {
   }, []);
     return (
         <div>
-            <Navbar></Navbar>
+          <nav className='fixed top-0 left-0 w-full z-50 bg-blue-50 shadow'>
+          <Navbar></Navbar>
+          </nav>
+            
             <Outlet></Outlet>
             <Footer></Footer>
 
