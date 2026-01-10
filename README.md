@@ -14,8 +14,8 @@ LuxTrip is a modern, responsive web application designed for travellers to brows
 - ## 📸 Screenshots
 
 <p align="center">
-  <img src="assetNexus3.png" width="45%" />
-  <img src="assetNexus4.png" width="45%" />
+  <img src="LuxTrip1.png" width="45%" />
+  <img src="LuxTrip2.png" width="45%" />
 </p>
 
 ## 🛠️ Tech Highlights
