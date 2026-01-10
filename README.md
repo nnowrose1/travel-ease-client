@@ -9,7 +9,14 @@ LuxTrip is a modern, responsive web application designed for travellers to brows
 ## 🔥 Features  
 - 🔐 **User Authentication System** — secure registration and login with protected routes  
 - 🧾 **Booking Management System** — seamless travel package booking with dashboard view and tracking  
-- 🌙 **Dark Mode Theme** — modern light/dark UI toggle for better user comfort and accessibility  
+- 🌙 **Dark Mode Theme** — modern light/dark UI toggle for better user comfort and accessibility
+
+- ## 📸 Screenshots
+
+<p align="center">
+  <img src="assetNexus3.png" width="45%" />
+  <img src="assetNexus4.png" width="45%" />
+</p>
 
 ## 🛠️ Tech Highlights
 
