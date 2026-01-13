@@ -10,6 +10,8 @@ const Login = () => {
   //   const {logInUser, setUser, googleSignIn} = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const DEMO_EMAIL = "luxtrip@demo.com";
+  const DEMO_PASSWORD = "Demo123";
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -25,8 +27,23 @@ const Login = () => {
       })
       .catch((error) => {
         // console.log("Log in error");
-        
+
         toast.error(error.message);
+      });
+  };
+
+  // demo login handler
+  const handleDemoLogin = () => {
+    toast.loading("Logging in as demo user...", { id: "demo" });
+
+    logInUser(DEMO_EMAIL, DEMO_PASSWORD)
+      .then((result) => {
+        setUser(result.user);
+        toast.success("Logged in as demo user", { id: "demo" });
+        navigate(location?.state || "/");
+      })
+      .catch((error) => {
+        toast.error(error.message, { id: "demo" });
       });
   };
 
@@ -45,8 +62,10 @@ const Login = () => {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           <div className="card bg-white p-8 w-full max-w-sm shrink-0 shadow-2xl text-black">
-            <h1 className="text-3xl text-accent text-center font-bold">Login Now!</h1>
-    
+            <h1 className="text-3xl text-accent text-center font-bold">
+              Login Now!
+            </h1>
+
             <div className="card-body">
               <form onSubmit={handleLogin}>
                 <fieldset className="fieldset">
@@ -55,7 +74,7 @@ const Login = () => {
                     type="email"
                     name="email"
                     required
-                    className="input border-orange-400 dark:bg-accent "
+                    className="input border-orange-400 dark:bg-white dark:border-gray-500"
                     placeholder="Email"
                   />
                   <div className="relative">
@@ -64,7 +83,7 @@ const Login = () => {
                       type={toggleEyeIcon ? "text" : "password"}
                       name="password"
                       required
-                      className="input border-orange-400 dark:bg-accent"
+                      className="input border-orange-400 dark:bg-white dark:border-gray-500"
                       placeholder="Password"
                     />
                     <button
@@ -87,6 +106,14 @@ const Login = () => {
                   </div>
                   <button className="btn mt-4 btn-primary rounded-md text-white">
                     Login
+                  </button>
+                  {/* demo login button */}
+                  <button
+                    type="button"
+                    onClick={handleDemoLogin}
+                    className="btn mt-1 btn-primary rounded-md text-white"
+                  >
+                    Demo Login
                   </button>
                 </fieldset>
               </form>

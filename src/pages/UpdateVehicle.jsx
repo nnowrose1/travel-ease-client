@@ -121,7 +121,7 @@ const UpdateVehicle = () => {
               name="category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full border border-orange-400 dark:text-primary dark:bg-accent rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+              className="w-full border border-orange-400 dark:text-primary dark:bg-white rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
             >
               <option value="">Select Category</option>
               <option value="Sedan">Sedan</option>
@@ -205,7 +205,7 @@ const UpdateVehicle = () => {
             name="categories"
              value={categories}
               onChange={(e) => setCategories(e.target.value)}
-            className="w-full border border-orange-400 dark:text-primary dark:bg-accent rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border border-orange-400 dark:text-primary dark:bg-white rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           >
             <option value="">Select Categories</option>
             <option value="Electric">Electric</option>

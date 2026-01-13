@@ -38,6 +38,14 @@ const VehicleDetails = () => {
       navigate('/login');
       return;
     }
+
+       if (user.email === "luxtrip@demo.com") {
+      Swal.fire({
+        icon: "error",
+        title: "Demo user cannot book vehicles",
+      });
+      return; 
+    }
     const bookVehicle= {...vehicleData, booked_by: user.email}
     axiosInstance.post("/myBookings", bookVehicle).then(() => {
       Swal.fire({

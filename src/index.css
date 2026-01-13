@@ -15,9 +15,6 @@ nav a.active {
   default: true;
 
   --color-primary: #6a7282;
-  /* --color-secondary: ;   */
-  /* --color-base-200: #f3f3f3;
-  --color-base-300: #e7e7e7; */
   --color-accent: #1e2939;
 }
 

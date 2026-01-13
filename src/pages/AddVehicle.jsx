@@ -6,6 +6,8 @@ import useAxios from "../customHooks/useAxios";
 
 const AddVehicle = () => {
   const { user } = useAuth();
+  // console.log(user);
+  
   const axiosInstance = useAxios();
 
   const handleSubmit = (e) => {
@@ -40,8 +42,14 @@ const AddVehicle = () => {
       vehicle_owner_email,
     };
 
+   if (user.email === "luxtrip@demo.com") {
+  Swal.fire({
+    icon: "error",
+    title: "Demo user cannot add vehicles",
+  });
+  return; 
+}
    
-
     axiosInstance.post("/allVehicles", newVehicle).then(() => {
       Swal.fire({
         position: "center",
@@ -95,7 +103,7 @@ const AddVehicle = () => {
           <select
             name="category"
             required
-            className="w-full border dark:text-primary rounded-lg p-2 dark:bg-accent border-orange-400 focus:ring-2 focus:ring-orange-400"
+            className="w-full border dark:text-primary rounded-lg p-2 dark:bg-white border-orange-400 focus:ring-2 focus:ring-orange-400"
           >
             <option value="">Select Category</option>
             <option value="Sedan">Sedan</option>
@@ -138,7 +146,7 @@ const AddVehicle = () => {
           <input
             type="checkbox"
             name="availability"
-            className="w-4 h-4 dark:text-primary border-orange-400 text-orange-400 focus:ring-orange-400"
+            className="w-4 h-4  border-orange-400 text-orange-400 focus:ring-orange-400"
           />
           <label className="text-accent">Available</label>
         </div>
@@ -177,7 +185,7 @@ const AddVehicle = () => {
             type="text"
             name="rating_star"
             placeholder="e.g., ⭐⭐⭐⭐"
-            className="w-full border dark:text-primary dark:bg-accent border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border dark:text-primary dark:bg-white border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -191,7 +199,7 @@ const AddVehicle = () => {
             step="0.1"
             name="avg_rating"
             placeholder="e.g., 4.5"
-            className="w-full border dark:text-primary dark:bg-accent border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border dark:text-primary dark:bg-white border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -204,7 +212,7 @@ const AddVehicle = () => {
             type="number"
             name="rating_count"
             placeholder="e.g., 128"
-            className="w-full border dark:text-primary dark:bg-accent border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border dark:text-primary dark:bg-white border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -216,7 +224,7 @@ const AddVehicle = () => {
           <select
             name="categories"
             required
-            className="w-full border dark:text-primary dark:bg-accent border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
+            className="w-full border dark:text-primary dark:bg-white border-orange-400 rounded-lg p-2 focus:ring-2 focus:ring-orange-400"
           >
             <option value="">Select Categories</option>
             <option value="Electric">Electric</option>

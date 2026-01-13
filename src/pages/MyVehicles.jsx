@@ -11,7 +11,7 @@ const MyVehicles = () => {
   const { user } = useAuth();
   const [myVehicles, setMyVehicles] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(user);
+  // console.log(user);
   
 
   useEffect(()=>{
@@ -52,16 +52,24 @@ const MyVehicles = () => {
     return <Loader></Loader>;
   }
 
+  // console.log(myVehicles);
+  
+
   return (
     <div className="bg-blue-50 rounded-lg">
       <div className="container mx-auto shadow-lg rounded-2xl p-8">
         <h2 data-aos="fade-right" className='text-accent font-bold text-3xl text-center pt-8'>
                  My Vehicles</h2>
+
+                 {
+                  myVehicles.length == 0 ? <p className="max-w-3xl mx-auto font-semibold text-xl text-center py-6 text-primary">No vehicles found!</p> :
+                 
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 py-8">
         {myVehicles.map((vehicle, index) => (
           <MyVehicleCard  key={vehicle._id} index={index} vehicle={vehicle} handleDelete={handleDelete}></MyVehicleCard>
         ))}
       </div>
+}
       </div>
     </div>
   );

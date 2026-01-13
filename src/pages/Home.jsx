@@ -10,6 +10,8 @@ import Categories from "../components/Categories";
 import Newsletter from "../components/Newsletter";
 import Statistics from "../components/Statistics";
 import FAQSection from "../components/FAQSection";
+import HowItWorks from "../components/HowItWorks";
+import PopularLocations from "../components/PopularLocations";
 
 const Home = () => {
   return (
@@ -22,9 +24,13 @@ const Home = () => {
 
       <Categories></Categories>
 
+      <HowItWorks></HowItWorks>
+
       <WhyChooseUs></WhyChooseUs>
 
       <Statistics></Statistics>
+
+      <PopularLocations></PopularLocations>
 
       {/* customer testimonial section */}
       <section className="bg-blue-50 py-12 px-4 text-accent text-center">

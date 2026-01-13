@@ -4,6 +4,7 @@ import { updateProfile } from 'firebase/auth';
 import {auth} from '../firebase/firebase.config'
 import { useNavigate } from 'react-router';
 import toast from 'react-hot-toast';
+import Swal from 'sweetalert2';
 
 const MyProfile = () => {
     const {user, setUser} = useAuth();
@@ -14,6 +15,14 @@ const MyProfile = () => {
         const name= e.target?.name.value;
         const photo = e.target?.photo.value;
         // console.log(name, photo);
+
+           if (user.email === "luxtrip@demo.com") {
+          Swal.fire({
+            icon: "error",
+            title: "Demo user cannot update profile",
+          });
+          return; 
+        }
         
         const profile = {
           displayName: name,
@@ -41,11 +50,11 @@ const MyProfile = () => {
             {/* Name */}
             <div>
           <label className="block font-medium text-accent mb-1"> Name</label>
-          <input type="text" name='name' defaultValue={user.displayName} required className="w-full dark:text-primary input text-accent border-orange-400" placeholder="Name" />
+          <input type="text" name='name' defaultValue={user.displayName} required className="w-full dark:text-primary input text-accent border-orange-400 dark:bg-white dark:border-gray-500" placeholder="Name" />
           </div>
           {/* Photo */}
           <label className="block font-medium text-accent mb-1">Photo</label>
-          <input type="text" name='photo'  className="w-full dark:text-primary input text-accent border-orange-400" placeholder="PhotoURL" />
+          <input type="text" name='photo'  className="w-full dark:text-primary input text-accent border-orange-400 dark:bg-white dark:border-gray-500" placeholder="PhotoURL" />
           {/* Email */}
            
           <label className="block font-medium text-accent mb-1">

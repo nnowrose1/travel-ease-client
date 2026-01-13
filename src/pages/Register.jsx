@@ -87,7 +87,7 @@ const Register = () => {
                 <input
                   type="text"
                   name="name"
-                  className="input dark:bg-accent"
+                  className="input dark:bg-white dark:border-gray-500"
                   placeholder="Name"
                   required
                 />
@@ -95,14 +95,14 @@ const Register = () => {
                 <input
                   type="text"
                   name="photo"
-                  className="input dark:bg-accent"
+                  className="input dark:bg-white dark:border-gray-500"
                   placeholder="Photo URL"
                 />
                 <label className="label">Email</label>
                 <input
                   type="email"
                   name="email"
-                  className="input dark:bg-accent"
+                  className="input dark:bg-white dark:border-gray-500"
                   placeholder="Email"
                   required
                 />
@@ -111,7 +111,7 @@ const Register = () => {
                   <input
                     type={toggleEyeIcon ? "text" : "password"}
                     name="password"
-                    className="input dark:bg-accent"
+                    className="input dark:bg-white dark:border-gray-500"
                     placeholder="Password"
                     required
                   />
@@ -131,7 +131,7 @@ const Register = () => {
                 {error && <p className="text-red-400">{error}</p>}
 
                 <label className="label">
-                  <input type="checkbox" name="terms" className="checkbox dark:bg-accent" />
+                  <input type="checkbox" name="terms" className="checkbox dark:bg-white dark:text-primary dark:border-gray-500" />
                   Please accept our Terms and Conditions!{" "}
                 </label>
 

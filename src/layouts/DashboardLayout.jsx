@@ -5,12 +5,17 @@ import { FaCar } from "react-icons/fa";
 import { TbBrandBooking } from "react-icons/tb";
 import { IoMdAddCircle } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
+import Navbar from "../components/Navbar";
 
 const DashboardLayout = () => {
   return (
+    <>
+    
     <div className="drawer lg:drawer-open">
+      
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
+        
         <nav className="navbar w-full bg-base-200">
           <label
             htmlFor="my-drawer-4"
@@ -189,6 +194,7 @@ const DashboardLayout = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
